@@ -44,9 +44,11 @@ active/online索引里面，timestamp超过一定范围的，都是没有意义�
 
 ---
 
+#### 基于KVM和OpenStack下虚拟机CPU超分导致的性能问题
+
 时间：2019年7月
 
-OpenStack的多个VM，超分了CPU资源，及时某一个VM的CPU是空闲的，也会引起整个物理机上其他VM的CPU出现steal的情况。把空闲的VM的CPU降下去，其他VM也明显有了改善。
+OpenStack的多个VM，两倍多地超分了CPU资源，即使某一个VM的CPU是空闲的，也会引起整个物理机上其他VM的CPU出现steal的情况。把空闲的VM分配的CPU数量降下去之后，其他VM的CPU性能也有了明显的改善。
 
 ---
 
