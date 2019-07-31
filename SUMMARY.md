@@ -49,7 +49,7 @@
   * [思考片段记录](chapter6/si-kao-pian-duan-ji-lu.md)
   * [视频学习与书本学习](chapter6/shi-pin-xue-xi-yu-shu-ben-xue-xi.md)
   * [人生的障碍](chapter6/ren-sheng-de-zhang-ai.md)
-  * 【列表】日常琐碎思考日志
+  * [【列表】日常琐碎思考日志](chapter6/3010-lie-biao-3011-ri-chang-suo-sui-si-kao-ri-zhi.md)
 * [第七：工作、技术及专业内容](/chapter7.md)
   * [【优化】sdk上报业务优化](chapter7/jpush-sdkshang-bao-ye-wu-mo-kuai-you-hua-ji-lu-he-zong-jie.md)
   * [【优化】博雅-大数据机器高故障率分析和优化](chapter7/3010-you-hua-an-li-3011-bo-96c5-da-shu-ju-ji-qi-gao-gu-zhang-lv-fen-xi-he-you-hua.md)
