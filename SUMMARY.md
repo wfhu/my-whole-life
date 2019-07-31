@@ -55,7 +55,6 @@
   * [【学习】专业相关学习资料清单](chapter7/zhuan-ye-xiang-guan-shu-ji-qing-dan.md)
   * [【优化】nginx启用reuseport](chapter7/3010-ji-zhu-xue-xi-yu-fen-xiang-3011-nginx-qi-yong-reuseport.md)
   * [【方案】使用redis hash和bitfield替换简单kv](chapter7/3010-you-hua-an-li-3011-shi-yong-redis-hash-he-bitfield-ti-huan-jian-dan-kv.md)
-  * [【列表】非技术类重点工作日志](chapter7/3010-lie-biao-3011-fei-ji-zhu-lei-zhong-dian-gong-zuo-ri-zhi.md)
   * [【列表】重要技术工作项目日志](chapter7/3010-lie-biao-3011-zhong-yao-gong-zuo-xiang-mu-ri-zhi.md)
 * [第八：个人生活及琐碎](chapter8.md)
   * [朋友圈记录](chapter8/peng-you-quan-ji-lu.md)
