@@ -17,6 +17,7 @@
   * [4、深圳-博雅-LZY阶段（2015.6-2016.5）](chapter2/43001-shen-5733-bo-96c5-lzy-jie-duan-ff08-2015-6-2016-5.md)
   * [5、深圳-博雅-QBQ阶段（2016.6-2018.8）](chapter2/53001-shen-5733-bo-96c5-qbq-jie-duan-ff08-2016-6-2018-8.md)
   * [6、深圳-极光（2018.9-）](chapter2/63001-shen-5733-ji-guang-ff08-2018-9-.md)
+  * [非技术工作日志](chapter2/fei-ji-zhu-gong-zuo-ri-zhi.md)
 * [第三：读书与文艺简评](chapter3-read-books.md)
   * [读书清单](chapter3-read-books/13001-du-shu-qing-dan.md)
     * [《庄子今注今译》](chapter3-read-books/300a-zhuang-zi-jin-zhu-jin-yi-300b.md)
