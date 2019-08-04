@@ -55,7 +55,7 @@
   * [【方案】使用redis hash和bitfield替换简单kv](chapter7/3010-you-hua-an-li-3011-shi-yong-redis-hash-he-bitfield-ti-huan-jian-dan-kv.md)
   * [【优化】nginx启用reuseport](chapter7/nginx-enable-reuseport.md)
   * [【优化】博雅-大数据机器高故障率分析和优化](chapter7/3010-you-hua-an-li-3011-bo-96c5-da-shu-ju-ji-qi-gao-gu-zhang-lv-fen-xi-he-you-hua.md)
-  * [【优化】sdk上报业务优化](chapter7/jpush-sdkshang-bao-ye-wu-mo-kuai-you-hua-ji-lu-he-zong-jie.md)
+  * [【优化】sdk上报业务优化](chapter7/hxhg-sdkreport-optimization.md)
   * [专业学习相关](chapter7/learning/README.md)
     * [网络之RFC793阅读笔记](chapter7/learning/network-rfc793-read-digest.md)
     * [【学习】专业相关学习资料清单](chapter7/learning/learning-book-lists.md)
