@@ -53,10 +53,12 @@
 * [第七：工作、技术及专业内容](/chapter7.md)
   * [【列表】重要技术工作项目日志](chapter7/3010-lie-biao-3011-zhong-yao-gong-zuo-xiang-mu-ri-zhi.md)
   * [【方案】使用redis hash和bitfield替换简单kv](chapter7/3010-you-hua-an-li-3011-shi-yong-redis-hash-he-bitfield-ti-huan-jian-dan-kv.md)
-  * [【学习】专业相关学习资料清单](chapter7/zhuan-ye-xiang-guan-shu-ji-qing-dan.md)
   * [【优化】nginx启用reuseport](chapter7/3010-ji-zhu-xue-xi-yu-fen-xiang-3011-nginx-qi-yong-reuseport.md)
   * [【优化】博雅-大数据机器高故障率分析和优化](chapter7/3010-you-hua-an-li-3011-bo-96c5-da-shu-ju-ji-qi-gao-gu-zhang-lv-fen-xi-he-you-hua.md)
   * [【优化】sdk上报业务优化](chapter7/jpush-sdkshang-bao-ye-wu-mo-kuai-you-hua-ji-lu-he-zong-jie.md)
+  * [【学习】专业相关学习资料清单](chapter7/zhuan-ye-xiang-guan-shu-ji-qing-dan.md)
+  * 技术学习相关
+    * 网络之RFC793阅读笔记
 * [第八：个人生活及琐碎](chapter8.md)
   * [朋友圈记录](chapter8/peng-you-quan-ji-lu.md)
   * [育儿](chapter8/yu-er-jing-yan-yu-si-kao.md)
@@ -66,6 +68,4 @@
   * [人格与愿景](chapter8/ren-ge-yu-yuan-jing.md)
   * [梦境](chapter8/meng-jing.md)
 * [第九：社会新闻与时事评论](chapter9.md)
-
-
 
