@@ -52,7 +52,7 @@
   * [【列表】日常琐碎思考日志](chapter6/3010-lie-biao-3011-ri-chang-suo-sui-si-kao-ri-zhi.md)
 * [第七：工作、技术及专业内容](/chapter7.md)
   * [【列表】重要技术工作项目日志](chapter7/list-core-job-list.md)
-  * [【方案】使用redis hash和bitfield替换简单kv](chapter7/3010-you-hua-an-li-3011-shi-yong-redis-hash-he-bitfield-ti-huan-jian-dan-kv.md)
+  * [【方案】使用redis hash和bitfield替换简单kv](chapter7/redis-hash-and-bitfield-replace-simple-kv.md)
   * [【优化】nginx启用reuseport](chapter7/nginx-enable-reuseport.md)
   * [【优化】博雅-大数据机器高故障率分析和优化](chapter7/by-bigdata-machine-optimization.md)
   * [【优化】sdk上报业务优化](chapter7/hxhg-sdkreport-optimization.md)
