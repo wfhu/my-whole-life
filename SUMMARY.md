@@ -58,7 +58,7 @@
   * [【优化】sdk上报业务优化](chapter7/jpush-sdkshang-bao-ye-wu-mo-kuai-you-hua-ji-lu-he-zong-jie.md)
   * [【学习】专业相关学习资料清单](chapter7/zhuan-ye-xiang-guan-shu-ji-qing-dan.md)
   * 技术学习相关
-    * 网络之RFC793阅读笔记
+    * [网络之RFC793阅读笔记](chapter7/wang-luo-zhi-rfc793-yue-du-bi-ji.md)
 * [第八：个人生活及琐碎](chapter8.md)
   * [朋友圈记录](chapter8/peng-you-quan-ji-lu.md)
   * [育儿](chapter8/yu-er-jing-yan-yu-si-kao.md)
