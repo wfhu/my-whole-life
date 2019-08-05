@@ -10,6 +10,7 @@
   * [5、大学时期（2004-2008）](chapter1/53001-da-xue-shi-qi-ff08-2004-2008.md)
   * [6、参加工作-广州（2008-2011）](chapter1/63001-can-jia-gong-4f5c-guang-zhou-ff08-2008-2011.md)
   * [7、参加工作-深圳（2011-2018）](chapter1/73001-can-jia-gong-4f5c-shen-zhen-ff08-2011-2018.md)
+  * 【列表】生活琐碎日志
 * [第二：通鉴-工作篇](chapter2.md)
   * [1、广州-网易-TJR（2008.7-2011.9）](chapter2/13001-guang-5dde-wang-6613-tjr-2008-7-2011-9.md)
   * [2、深圳-腾讯-ZYB（2011.9-2011.12）](chapter2/23001-shen-5733-teng-8baf-zyb-2011-9-2011-12.md)
