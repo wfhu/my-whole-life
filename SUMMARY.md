@@ -35,8 +35,6 @@
   * [重读《讲话》很有必要](chapter5-society/zai-du-300a-jiang-hua-300b-hen-you-bi-yao.md)
   * [感情不是洪水猛兽](chapter5-society/gan-qing-bu-shi-hong-shui-meng-shou.md)
 * [第六：专题思考与总结](/chapter6.md)
-  * [思考片段记录](chapter6/si-kao-pian-duan-ji-lu.md)
-  * [人生的障碍](chapter6/ren-sheng-de-zhang-ai.md)
   * [【列表】日常琐碎思考日志](chapter6/3010-lie-biao-3011-ri-chang-suo-sui-si-kao-ri-zhi.md)
 * [第七：工作、技术及专业内容](/chapter7.md)
   * [【列表】重要技术工作项目日志](chapter7/list-core-job-list.md)
