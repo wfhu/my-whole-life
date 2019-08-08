@@ -42,7 +42,7 @@
   * [【优化】sdk上报业务优化](chapter7/hxhg-sdkreport-optimization.md)
   * [专业学习相关](chapter7/learning/README.md)
     * [网络之RFC793阅读笔记](chapter7/learning/network-rfc793-read-digest.md)
-    * [【学习】专业相关学习资料清单](chapter7/learning/learning-book-lists.md)
+    * [专业相关学习资料清单](chapter7/learning/learning-book-lists.md)
 * [第八：个人生活及琐碎](chapter8.md)
   * [朋友圈记录](chapter8/peng-you-quan-ji-lu.md)
   * [育儿](chapter8/yu-er-jing-yan-yu-si-kao.md)
