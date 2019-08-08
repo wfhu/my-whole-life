@@ -31,7 +31,6 @@
   * [谈话](chapter4-dreams/tan-hua.md)
   * [片段](chapter4-dreams/pian-duan.md)
 * [第五：社论及呼喊](chapter5-society.md)
-  * [重读《讲话》很有必要](chapter5-society/zai-du-300a-jiang-hua-300b-hen-you-bi-yao.md)
   * [感情不是洪水猛兽](chapter5-society/gan-qing-bu-shi-hong-shui-meng-shou.md)
 * [第六：专题思考与总结](/chapter6.md)
   * [【列表】日常琐碎思考日志](chapter6/3010-lie-biao-3011-ri-chang-suo-sui-si-kao-ri-zhi.md)
