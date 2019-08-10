@@ -45,7 +45,6 @@
     * [专业相关学习资料清单](chapter7/learning/learning-book-lists.md)
     * [网络之RFC1323精读](chapter7/learning/wang-luo-zhi-rfc1323-jing-du.md)
 * [第八：个人生活及琐碎](chapter8.md)
-  * [朋友圈记录](chapter8/peng-you-quan-ji-lu.md)
   * [育儿](chapter8/yu-er-jing-yan-yu-si-kao.md)
     * [孕育及成长](chapter8/yu-er-jing-yan-yu-si-kao/yun-yu-ji-cheng-chang.md)
     * [育儿思考与计划](chapter8/yu-er-jing-yan-yu-si-kao/yu-er-si-kao-yu-ji-hua.md)
