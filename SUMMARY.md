@@ -41,7 +41,7 @@
   * [【优化】博雅-大数据机器高故障率分析和优化](chapter7/by-bigdata-machine-optimization.md)
   * [【优化】sdk上报业务优化](chapter7/hxhg-sdkreport-optimization.md)
   * [专业学习相关](chapter7/learning/README.md)
-    * [网络之RFC793阅读笔记](chapter7/learning/network-rfc793-read-digest.md)
+    * [【阅读笔记】网络之RFC793](chapter7/learning/network-rfc793-read-digest.md)
     * [专业相关学习资料清单](chapter7/learning/learning-book-lists.md)
     * [网络之RFC1323精读](chapter7/learning/wang-luo-zhi-rfc1323-jing-du.md)
     * [【阅读笔记】Redis-Cluster-Specification](chapter7/learning/3010-yuedu-bi-ji-3011-redis-cluster-specification.md)
