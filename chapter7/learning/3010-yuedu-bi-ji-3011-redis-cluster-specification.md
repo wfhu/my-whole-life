@@ -2,11 +2,11 @@
 
 ---
 
-原文地址：[https://redis.io/topics/cluster-spec](https://redis.io/topics/cluster-spec)
+**原文地址**：[https://redis.io/topics/cluster-spec](https://redis.io/topics/cluster-spec)
 
-阅读时间：2019年8月
+**阅读时间**：2019年8月
 
-重点内容摘要：
+**重点内容摘要**：
 
 1000个节点的情况下性能可以线性增长
 
@@ -56,17 +56,7 @@ FAIL节点会最终扩散到集群其他节点
 
 使用FAIL机制，而不是直接让slave做promotion来代替master，主要是防止slave认为master有问题但是实际上其他节点连接master没有问题。
 
-currentEpoch就是一个64位的无符号整形数字，节点创建的时候是0，接收到的Epoch大于本地的就会更新。
+currentEpoch就是一个64位的无符号整形数字，节点创建的时候是0，接收到的Epoch大于本地的就会更新。
 
 configEpoch用来解决不同节点之间的配置冲突（比如网络分裂以及节点失效的情况下）
-
-
-
-
-
-
-
-
-
-
 
