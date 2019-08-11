@@ -20,7 +20,7 @@ Redis Cluster使用last failover wins，所以可能会丢失写入数据
 
 整体来讲Redis Cluster选择了CAP里面的CP，它不会允许持续的、大量的丢失数据的情况发生；当集群分裂时，少数节点部分（minority side）超过NODE\_TIMEOUT的时长后会拒绝接受写入请求。
 
-通过使用replicas migration特性，可以提升整个集群的可用性，因为它可以让调度replica给没有replicas的master节点
+通过使用replicas migration特性，可以提升整个集群的可用性，因为它可以调度replica给没有replicas的master节点，从而提升整个集群的抗FAIL的能力
 
 整个Cluster的key space被分割成16384个slot
 
