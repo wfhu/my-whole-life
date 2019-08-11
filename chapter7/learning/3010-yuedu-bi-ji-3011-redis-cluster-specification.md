@@ -53,9 +53,13 @@ multi-key的操作，如果key不存在或者在resharding过程中在不同节�
 * PFAIL表示本机对另外节点的检测
 * FAIL标识会最终扩散到集群其他节点
 
+slave在master是FAIL状态时，会启动elect和promotion机制，但是如果NODE\_TIMEOUT \* 2（最少2秒）时间内没收到大多数（majority）节点的响应，会重新发起一次，但是后面的超时时间会翻倍。
+
 使用FAIL机制，而不是直接让slave做promotion来代替master，主要是防止slave认为master有问题但是实际上其他节点连接master没有问题。
 
 currentEpoch和configEpoch就是一个64位的无符号整形数字，节点创建的时候是0，接收到的Epoch大于本地的就会更新；它们用来解决不同节点之间的配置冲突（比如网络分裂以及节点失效的情况下，通过Epoch的版本来确认哪个版本是最新的）。
 
 redis Cluster内如果使用PUB/SUB，也是可以用的，但是目前是会把消息广播给整个集群所有节点，所以效率肯定不高。
+
+
 
