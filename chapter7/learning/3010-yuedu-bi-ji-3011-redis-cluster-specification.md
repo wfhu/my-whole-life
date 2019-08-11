@@ -50,9 +50,8 @@ multi-key的操作，如果key不存在或者在resharding过程中在不同节�
 
 失效检测机制：
 
-PFAIL表示本机对另外节点的检测
-
-FAIL节点会最终扩散到集群其他节点
+* PFAIL表示本机对另外节点的检测
+* FAIL标识会最终扩散到集群其他节点
 
 使用FAIL机制，而不是直接让slave做promotion来代替master，主要是防止slave认为master有问题但是实际上其他节点连接master没有问题。
 
