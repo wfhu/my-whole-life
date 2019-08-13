@@ -17,6 +17,7 @@
   * [3、深圳-博雅-LLQ阶段（2012.2-2015.6）](chapter2/33001-shen-5733-bo-96c5-llq-jie-duan-ff08-2012-2-2015-6.md)
   * [4、深圳-博雅-LZY阶段（2015.6-2016.5）](chapter2/43001-shen-5733-bo-96c5-lzy-jie-duan-ff08-2015-6-2016-5.md)
   * [5、深圳-博雅-QBQ阶段（2016.6-2018.8）](chapter2/53001-shen-5733-bo-96c5-qbq-jie-duan-ff08-2016-6-2018-8.md)
+    * [【管理】批评与自我批评](chapter2/53001-shen-5733-bo-96c5-qbq-jie-duan-ff08-2016-6-2018-8/3010-guan-li-3011-pi-ping-yu-zi-wo-pi-ping.md)
   * [6、深圳-极光（2018.9-）](chapter2/63001-shen-5733-ji-guang-ff08-2018-9-.md)
   * [【列表】非技术重点工作日志](chapter2/fei-ji-zhu-gong-zuo-ri-zhi.md)
 * [第三：读书与文艺简评](chapter3-read-books.md)
