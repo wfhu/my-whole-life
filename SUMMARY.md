@@ -4,7 +4,7 @@
 * [Ⅱ：内容简介](brief-content.md)
 * [第一：通鉴-生活篇](chapter1.md)
   * [1、小学及小学以前（1986-1998）](chapter1/elementray-and-before.md)
-  * [2、初中时期（1998-2001）](chapter1/chu-zhong-shi-qi-ff08-1998-2001.md)
+  * [2、初中时期（1998-2001）](chapter1/junior-high-school.md)
   * [3、高中时期-涟钢中学（2001-2002）](chapter1/3.md)
   * [4、高中时期-娄底一中（2002-2004）](chapter1/43001-gao-zhong-shi-671f-lou-di-yi-zhong-ff08-2002-2004.md)
   * [5、大学时期（2004-2008）](chapter1/53001-da-xue-shi-qi-ff08-2004-2008.md)
