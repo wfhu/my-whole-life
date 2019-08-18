@@ -1,4 +1,14 @@
-### 2019年4月3日开始完整阅读
+## 【阅读笔记】Kubernetes in Action
+
+---
+
+出版时间：2018年
+
+书本长度：628页（PDF电子版）
+
+2019年4月3日开始完整阅读
+
+---
 
 [重要前提：](#5559-1561210767694)
 
@@ -43,6 +53,8 @@
 [第十七章：开发APP的最佳实践 --P477/509](#7650-1564476619108)
 
 [第十八章：扩展Kubernetes --P508/540](#2163-1565510609019)
+
+---
 
 ### 重要前提：
 
@@ -536,7 +548,7 @@ RoleBinding虽然也是某一个namespace相关的，但是它可以关联到另
 
 API server重启的时候，默认的ClusterRoles和ClusterRoleBindings会被重新创建
 
-第十三章：让k8s集群的node及网络变得安全 --P375/407
+#### 第十三章：让k8s集群的node及网络变得安全 --P375/407
 
 hostNetwork = true，这样Pod就使用Node的网卡namespace了，而不是自己的虚拟网络namespace；k8s的control组件，通过Pod模式部署，就是走的这种模式。
 
@@ -567,19 +579,13 @@ PodSecurityPolicy关于CAP的几点功能：
 
 不同的PodSecurityPolicy通过ClusterRole以及ClusterRoleBinding与user/group等绑定 --P398/430
 
-kubectl config set-credentials
-
-&lt;
-
-name
-
-&gt;
+kubectl config set-credentials &lt;name&gt;
 
 ：可以设置多个context；方便使用不同的用户（或token/certificates）来创建资源。
 
 NetworkPolicy：（通过PodSelector或者ipBlock等）管理Pod的入（ingress）及出（egress）的访问权限控制（需要CNI plugin之类的网络插件支持，否则不会有效果）。 --P399/431
 
-第十四章：管理Pod的计算资源 --P404/436
+#### 第十四章：管理Pod的计算资源 --P404/436
 
 requests（最低资源需求）和limits（最高使用资源限制）都是container级别的限制，不是Pod级别的。
 
@@ -632,7 +638,7 @@ LimitRange只限制单个Pod的资源，不限制namespace下所有的Pod的资�
 
 cAdvisor是和Kubelet集成在一起的；Heapster则需要单独安装的addon组件；都只能保存很短一段时间；需要InfluxDB来长期保存数据。
 
-第十五章：自动扩展Pod和集群的Node --P437/469
+#### 第十五章：自动扩展Pod和集群的Node --P437/469
 
 HorizontalPodAutoscaler \(HPA\)依赖Heapster和cAdvisor采集和汇聚的数据，才能正常执行功能。
 
@@ -654,7 +660,7 @@ Cluster Autoscaler：在Node资源不足时，创建新的云主机来满足Pod�
 
 PodDisruptionBudget \(PDB\)：确保在Cluster scale down的过程中，某些Pod至少存在相应的个数（避免业务收到太大的影响，以及有最小Pod数量要求的应用受到影响） --455/487
 
-第十六章：高级调度 --457/489
+#### 第十六章：高级调度 --457/489
 
 node's taint + Pod's toleration
 
@@ -682,7 +688,7 @@ Pod Affinity一旦定义了，不但自己会靠近目标Pod；如果目标Pod�
 
 有Pod Affinity，也有podAntiAffinity，让自己远离目标Pod来部署。
 
-第十七章：开发APP的最佳实践 --P477/509
+#### 第十七章：开发APP的最佳实践 --P477/509
 
 app需要准备好随时被kill以及被调度到其他的节点上
 
@@ -720,7 +726,7 @@ ksonnet：一个帮助生成k8s的yaml/json的配置文件，方便管理的工�
 
 --506/538
 
-第十八章：扩展Kubernetes --P508/540
+#### 第十八章：扩展Kubernetes --P508/540
 
 CustomResourceDefinition object \(CRD\)：可以定义更高级的Resource，方便使用，比如定义一个Queue的Resource，就不需要考虑Secrets/Deployment/Services之类的定义了，相当于现有Resource的整合。
 
@@ -729,6 +735,8 @@ CustomResourceDefinition object \(CRD\)：可以定义更高级的Resource，方
 Service Catalog：类似为某一类对外提供的服务而定义的自助创建的模板，方便把k8s集群的能力对外输出。
 
 OpenShift，Deis Workflow：基于kubernetes的工具
+
+---
 
 核心篇章完整阅读完毕：2019年8月18日
 
