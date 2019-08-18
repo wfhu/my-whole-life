@@ -46,6 +46,7 @@
     * [【列表】专业相关学习资料清单](chapter7/learning/learning-book-lists.md)
     * [【阅读笔记】网络之RFC1323](chapter7/learning/wang-luo-zhi-rfc1323-jing-du.md)
     * [【阅读笔记】Redis-Cluster-Specification](chapter7/learning/3010-yuedu-bi-ji-3011-redis-cluster-specification.md)
+    * [【阅读笔记】Kubernetes in Action](chapter7/learning/3010-yue-du-bi-ji-3011-kubernetes-in-action.md)
 * [第八：个人生活及琐碎](chapter8.md)
   * [育儿](chapter8/yu-er-jing-yan-yu-si-kao.md)
     * [孕育及成长](chapter8/yu-er-jing-yan-yu-si-kao/yun-yu-ji-cheng-chang.md)
