@@ -68,7 +68,7 @@ Linux Namespace实现资源的隔离
 
 Linux control groups（cgroups）实现资源限制 --P11/43
 
-如果app依赖某个内核功能（或者模块），则app不一定能任意在Docker上运行；如果app是针对ARM硬件架构的，不一定能在x86架构的Docker上运行。这些情况，通过VM可以解决。 --P15/47
+如果app依赖某个内核功能（或者模块），则app不一定能任意在Docker上运行；如果app是针对ARM硬件架构的，不一定能在x86架构的Docker上运行。但是这些情况，通过VM都可以解决。 --P15/47
 
 #### 第二章：Docker和K8S相关的入门步骤 --P25/57
 
