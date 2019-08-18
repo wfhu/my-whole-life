@@ -18,11 +18,19 @@ redis bitfield介绍：[http://antirez.com/news/103](http://antirez.com/news/103
 
 #### 完整的测试及性能报告如下：
 
-目前消息列表的实时数据保存在CouchBase中，使用的是key-value的形式，即一个指标就是一个key，这种情况，容易导致我们的数据量不断的增大，特别是增加一个指标的时候可能整体的数据又不断的暴涨，同时report api也需要读取CouchBase的时候，导致report api容易发生超时，同时也影响CB的写入！
+#### 当前存储使用情况
+
+目前消息列表的实时数据保存在CouchBase中，使用的是key-value的形式，即每一个指标都是一个key-value存储。这种情况，由于同一个key可能有多个指标（比如发送量、送达量、点击量，还区分IOS和安卓平台），所以同一个key会重复出现多次。
+
+一个key需要占用30个bytes以上的存储，再加上CouchBase对每一个Document额外的56个bytes的metadata（参考这里：[metadata](https://developer.couchbase.com/documentation/server/3.x/admin/Concepts/bp-sizingGuidelines.html)），导致key+metadata占用超过60%的内存，内存使用效率低下。
+
+增加一个指标的时候可能整体的数据又不断的暴涨。同时report api也需要读取CouchBase的时候，导致report api容易发生超时，同时也影响CB的写入！
 
 并且每次iportal和report api读取一个msg\_id的所有指标的时候，需要多次（25次以上）访问CB，从而加剧了CB的负载，特别是最近一段时间，频繁出现故障。
 
 目前现在正在用的有3个CB，2个正式使用的cb（realtime-stats&lt;1.24T&gt;和csc-msg-stats&lt;468G&gt;）和即将投产的cscstats-ptask（849G）。
+
+#### 测试过程及结论数据
 
 基于上面种种问题和资源的不断膨胀。现在在调研redis hash结构，通过hincryBy操作来实现数据的存储和累加。
 
