@@ -61,7 +61,7 @@ bitfield使用的是u32，17个field,hash hincrby使用的field为‘a’,'b','c
 
 检测当前report api的请求，发现峰值为6W每分钟\(QPM\)，平均每秒1000个，即使以每条请求带有最大值msg\_id数100来算，每秒请求redis的量为10W，根据上面测试的两种方案，在现有测试集群下都能满足对应的读写性能。
 
-##### 三、结论 {#id-消息列表存储服务cb切换redis方案测试-三、结论}
+##### 三、测试结论 {#id-消息列表存储服务cb切换redis方案测试-三、结论}
 
 结合当前业务情况与bitfield和hash 的hincrby的自身特点，**建议使用hash的hincrby来进行做存储**，建议理由如下：
 
@@ -71,7 +71,7 @@ bitfield使用的是u32，17个field,hash hincrby使用的field为‘a’,'b','c
 
 另外在实际的生产中hash的hincrby使用的空间会比bitfield少！
 
-##### 四、优化效果
+##### 四、实际优化效果
 
 ![](/assets/redis-bitfield-hash-04-import.png)
 
