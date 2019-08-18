@@ -28,9 +28,9 @@ Redis Cluster使用last failover wins，所以可能会丢失写入数据。
 
 hash tags通过{...}的内容来做为计算slot的内容。
 
-每个node有一个全局且永久唯一的node id，及时机器的IP和端口变了也不会有影响。
+每个node有一个全局且永久唯一的node id，即使机器的IP和端口变了也不会有影响。
 
-Cluster Node之间通讯的端口：在普通客户端口上+10000，是二进制协议，提高性能。
+Cluster Node之间通讯的端口：在普通客户端口上增加10000；是二进制协议，主要是为了提高性能。
 
 通过gossip协议以及一个可配置的update方式，避免节点之间的消息过多，确保内部通讯消息数量不是指数级增长的。
 
@@ -60,6 +60,4 @@ slave在master是FAIL状态时，会启动elect和promotion机制，但是如果
 currentEpoch和configEpoch就是一个64位的无符号整形数字，节点创建的时候是0，接收到的Epoch大于本地的就会更新；它们用来解决不同节点之间的配置冲突（比如网络分裂以及节点失效的情况下，通过Epoch的版本来确认哪个版本是最新的）。
 
 redis Cluster内如果使用PUB/SUB，也是可以用的，但是目前是会把消息广播给整个集群所有节点，所以效率肯定不高。
-
-
 
