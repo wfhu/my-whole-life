@@ -12,6 +12,8 @@
 * 通过使用ECC证书替换RSA证书，节省主机和带宽费用（约30万人民币/月）
 * 将上报协议从HTTP/HTTPS修改为TCP协议，彻底规避HTTPS协议和SSL证书，节省带宽和计算资源（约50万人民币/月）
 
+---
+
 [优化效果](#sdkreport-result)
 
 [业务描述](#sdkreport-desc)
