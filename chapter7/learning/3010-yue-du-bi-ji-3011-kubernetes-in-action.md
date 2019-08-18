@@ -1,4 +1,4 @@
-2019年4月3日开始完整阅读
+### 2019年4月3日开始完整阅读
 
 [重要前提：](#5559-1561210767694)
 
@@ -434,9 +434,9 @@ StatefulSets能够被访问到，需要一个Headless service作为GOVERNING Ser
 
 StatefulSet的副本所在的node如果出行问题了，k8s不会自动替换，因为（most-one）需求，必须要管理员手动告诉k8s（比如删除Pod，或者删除Node），才会替换有故障的副本
 
-第三部分：基础之外的内容 --P309/341
+### 第三部分：基础之外的内容 --P309/341
 
-第十一章：理解k8s内部 -P309/341
+#### 第十一章：理解k8s内部 -P309/341
 
 管理控制台组件：
 
@@ -496,27 +496,7 @@ Pod里面可以在spec里面设置schedulerName属性，可以使用其他的Sch
 
 Kubelet本身也可以直接通过Pod的manifest文件创建静态的Pod，k8s的服务组件如果跑在Pod里面，就是通过这种方式实现的。 --P326/358
 
-kube-proxy：两种模式：userspace模式（client-
-
-&gt;
-
-iptables-
-
-&gt;
-
-kube-proxy-
-
-&gt;
-
-pod\)以及iptables模式（client-
-
-&gt;
-
-iptables-
-
-&gt;
-
-pod） --P328/360
+kube-proxy：两种模式：userspace模式（client -&gt; iptables -&gt; kube-proxy -&gt; pod\)以及iptables模式（client -&gt; iptables -&gt; pod） --P328/360
 
 Ingress controller虽然后端是指向Service，但是实际是把流量直接传递给Pod的 --P329/362
 
@@ -542,7 +522,7 @@ Service的ClusterIP是一个虚拟IP（没有和任何主机、veth绑定，也�
 
 API Server前面用一个LB来做负载均衡或者高可用，都是可以的，因为它整体上是无状态的；但是Scheduler和Controller Manager一次只能有一个在active，所以他们内部默认实现了--leader-elect来选举leader，只有leader才会干活，其他默认是standby状态（选举过程是通过写一个kube-scheduler的EndPoint资源实现的，期间通过乐观锁来确保只有一个写入成功）。 --P343/375
 
-第十二章：让k8s的API server变得安全 --P346/378
+#### 第十二章：让k8s的API server变得安全 --P346/378
 
 每一个Pod都会有一个ServiceAccount，如果没有指定就使用default；SA的token使用的是JSON Web Tokens。
 
