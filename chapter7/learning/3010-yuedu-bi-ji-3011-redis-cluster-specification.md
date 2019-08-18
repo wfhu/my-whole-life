@@ -32,9 +32,9 @@ hash tags通过{...}的内容来做为计算slot的内容。
 
 Cluster Node之间通讯的端口：在普通客户端口上增加10000；是二进制协议，主要是为了提高性能。
 
-通过gossip协议以及一个可配置的update方式，避免节点之间的消息过多，确保内部通讯消息数量不是指数级增长的。
+通过gossip协议以及一个可配置的update方式，避免节点之间的消息过多，确保内部通讯消息数量不会随着节点数增加而呈指数级增长。
 
-管理员通过MEET指令，可以将某一个node加入集群中。
+管理员通过MEET指令，可以将某一个node加入集群中，详细可参考：[https://redis.io/commands/cluster-meet](https://redis.io/commands/cluster-meet)
 
 通过CLUSTER SETSLOT指令（针对某个slot里面的全部key，会下发MIGRATE指令），可以将某个slot和node关联起来。
 
