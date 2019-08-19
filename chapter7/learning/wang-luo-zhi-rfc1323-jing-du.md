@@ -26,7 +26,5 @@ TCP包头内表示Window Size的只有16位长，所有接收端传递给发送�
 
 由于TCP协议的Slow Start等机制，少量的丢包会导致发送端发送速率大幅度回撤，恢复到正常水平需要一段比较长的时间，从而导致性能问题。解决方案有：Fast Retransmit，Fast Recovery，Selective Acknowledgement等。
 
-Fast Retransmit：普通情况下，TCP发送端需要等待timeout才能重新发送一个包；但是有了Fast Retransmit，发送端如果收到多个duplicated ack包，就会马上重传，放弃继续等待timeout。
-
-
+Fast Retransmit：普通情况下，TCP发送端需要等待timeout才能重新发送一个包；但是有了Fast Retransmit，发送端如果收到多个duplicated ack包（一般是三个重复包，总共四个），就会马上重传，放弃继续等待timeout。
 
