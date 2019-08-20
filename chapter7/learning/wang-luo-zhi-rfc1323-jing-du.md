@@ -20,7 +20,9 @@ long, fat pipe（以及LFN）：网络速率很高、延迟很大的网络。
 
 ##### 1、Window Size
 
-TCP包头内表示Window Size的只有16位长，所有接收端传递给发送端的Window Size最大也只能是2^16=65KB，从而可能导致线路的利用率较低。通过增加Window Scale选项，使得Window Size最多增加14位，所以最大的Window Size可以达到2^30=1GB。
+TCP包头内表示Window Size的只有16位长，所有接收端传递给发送端的Window Size最大也只能是2^16=65KB，从而可能导致线路的利用率较低。
+
+通过增加Window Scale选项，使得Window Size最多增加14位，所以最大的Window Size可以达到2^\(16+14\)=1GB。
 
 ##### 2、网络丢包
 
