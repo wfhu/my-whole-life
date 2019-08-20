@@ -30,3 +30,7 @@ Fast Retransmit：普通情况下，TCP发送端需要等待timeout才能重新�
 
 Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内容可以参考RFC5681：[TCP Congestion Control](https://tools.ietf.org/html/rfc5681)
 
+> **注意**：Congestion Control主要是从发送端来控制，避免导致整个链路拥塞。而TCP的Flow Control，则主要是接收端主动控制，避免发送端发送过多数据给自己。
+
+
+
