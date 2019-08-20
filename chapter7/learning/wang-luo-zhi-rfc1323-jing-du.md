@@ -28,21 +28,5 @@ TCP包头内表示Window Size的只有16位长，所有接收端传递给发送�
 
 Fast Retransmit：普通情况下，TCP发送端需要等待timeout才能重新发送一个包；但是有了Fast Retransmit，发送端如果收到多个duplicated ack包（一般是三个重复包，总共四个），就会马上重传，放弃继续等待timeout。
 
-Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内容可以参考：[https://tools.ietf.org/html/rfc5681](https://tools.ietf.org/html/rfc5681)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内容可以参考RFC5681：[TCP Congestion Control](https://tools.ietf.org/html/rfc5681)
 
