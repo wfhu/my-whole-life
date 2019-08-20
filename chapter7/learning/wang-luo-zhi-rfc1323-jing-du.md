@@ -1,8 +1,8 @@
-#### 【阅读笔记】网络之RFC1323
+#### 【阅读笔记】网络之RFC7323
 
 ---
 
-**原文链接**：[https://tools.ietf.org/html/rfc1323](https://tools.ietf.org/html/rfc1323)
+**原文链接**：[https://tools.ietf.org/html/rfc7323](https://tools.ietf.org/html/rfc7323)
 
 **标题**：TCP Extensions for High Performance
 
