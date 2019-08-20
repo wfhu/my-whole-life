@@ -14,7 +14,7 @@
 
 #### 一、TCP性能：
 
-bandwidth\*delay product：网络速率与网络延迟的乘积，代表填满整个管道需要的数据量；尽量让整个管道都填满数据，是提高TCP性能的基本方法。
+bandwidth\*delay product：网络速率与网络延迟的乘积，代表填满整个管道需要的数据量；尽量让整个管道都填满数据（Keep The Pipe Full），是提高TCP性能的基本方法。
 
 long, fat pipe（以及LFN）：网络速率很高、延迟很大的网络。
 
