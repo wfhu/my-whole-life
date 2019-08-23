@@ -25,7 +25,8 @@
     * [《庄子今注今译》](chapter3-read-books/300a-zhuang-zi-jin-zhu-jin-yi-300b.md)
     * [《离骚》](chapter3-read-books/li-sao.md)
     * [《直面内心的恐惧》](chapter3-read-books/300a-zhi-mian-nei-xin-de-kong-ju-300b.md)
-    * [高效人士的七个习惯](chapter3-read-books/gao-xiao-ren-shi-de-qi-ge-xi-guan.md)
+    * [《高效能人士的七个习惯》](chapter3-read-books/gao-xiao-ren-shi-de-qi-ge-xi-guan.md)
+    * 《褚时健：影响企业家的企业家》
   * [电影与电视剧](chapter3-read-books/dian-ying-yu-dian-shi-ju.md)
 * [第四：梦幻和狂想](chapter4-dreams.md)
   * [二十四小时的情侣](chapter4-dreams/er-shi-si-xiao-shi-de-qing-lv.md)
