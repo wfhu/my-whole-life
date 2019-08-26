@@ -45,3 +45,9 @@ Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内�
 
 由于各个厂商对于TCP的Congestion Control算法存在诸多不同的诉求，所有有很多新的算法出来，比如 [BBR](https://cloud.google.com/blog/products/gcp/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster)
 
+---
+
+#### 二、TCP的可靠性
+
+
+
