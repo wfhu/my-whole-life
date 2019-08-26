@@ -36,7 +36,8 @@ Fast Recovery：在发生Fast Retransmit的时候，不会把CWND（拥塞窗口
 ![](/assets/Fast-Retransmit-Fast-Recovery-Reno.png)
 
 ```
-注意：TCP Congestion Control有很多算法，上面这个是Reno算法，而Tahoe算法则没有Fast Recovery。
+注意：TCP Congestion Control有很多算法，上面这个是Reno算法，而Tahoe算法则没有Fast Recovery。可以认为Reno是Tahoe的改进版，具体参考：
+https://en.wikipedia.org/wiki/TCP_congestion_control#TCP_Tahoe_and_Reno
 ```
 
 Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内容可以参考RFC5681：[TCP Congestion Control](https://tools.ietf.org/html/rfc5681)
