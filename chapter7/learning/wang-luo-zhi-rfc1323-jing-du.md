@@ -30,6 +30,11 @@ TCP包头内表示Window Size的只有16位长，所有接收端传递给发送�
 
 Fast Retransmit：普通情况下，TCP发送端需要等待timeout才能重新发送一个包；但是有了Fast Retransmit，发送端如果收到多个duplicated ack包（一般是三个重复包，总共四个），就会马上重传，放弃继续等待timeout。
 
+Fast Recovery：在发生Fast Retransmit的时候，不会把CWND（拥塞窗口大小，用于控制发送端发送的速率）降到1，而是降到原来的一半。
+
+有一张图很好的解释了Fast Retransmit和Fast Recovery：  
+![](/assets/Fast-Retransmit-Fast-Recovery.png)
+
 Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内容可以参考RFC5681：[TCP Congestion Control](https://tools.ietf.org/html/rfc5681)
 
 > **注意**：Congestion Control主要是从发送端来进行控制，避免导致整个链路拥塞，重点在于感知整个链路的健康状况并作出相应的调整。而TCP的Flow Control（主要是通过[滑动窗口-sliding window](https://en.wikipedia.org/wiki/Sliding_window_protocol)），则主要是接收端主动控制，避免发送端发送过多数据给自己。
