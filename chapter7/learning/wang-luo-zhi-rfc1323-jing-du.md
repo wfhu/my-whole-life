@@ -33,11 +33,15 @@ Fast Retransmit：普通情况下，TCP发送端需要等待timeout才能重新�
 Fast Recovery：在发生Fast Retransmit的时候，不会把CWND（拥塞窗口大小，用于控制发送端发送的速率）降到1，而是降到原来的一半。
 
 有一张图很好的解释了Fast Retransmit和Fast Recovery：  
-![](/assets/Fast-Retransmit-Fast-Recovery.png)
+![](/assets/Fast-Retransmit-Fast-Recovery-Reno.png)
+
+```
+注意：TCP Congestion Control有很多算法，上面这个是Reno算法，而Tahoe算法则没有Fast Recovery。
+```
 
 Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内容可以参考RFC5681：[TCP Congestion Control](https://tools.ietf.org/html/rfc5681)
 
 > **注意**：Congestion Control主要是从发送端来进行控制，避免导致整个链路拥塞，重点在于感知整个链路的健康状况并作出相应的调整。而TCP的Flow Control（主要是通过[滑动窗口-sliding window](https://en.wikipedia.org/wiki/Sliding_window_protocol)），则主要是接收端主动控制，避免发送端发送过多数据给自己。
 
-注：由于默认的Congestion Control算法存在诸多的问题，进而影响网络的吞吐量，所有有很多新的算法出来，比如 [BBR](https://cloud.google.com/blog/products/gcp/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster)
+由于各个厂商对于TCP的Congestion Control算法存在诸多不同的诉求，所有有很多新的算法出来，比如 [BBR](https://cloud.google.com/blog/products/gcp/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster)
 
