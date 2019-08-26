@@ -26,7 +26,7 @@ TCP包头内表示Window Size的只有16位长，所有接收端传递给发送�
 
 ##### 2、网络丢包
 
-由于TCP协议的Slow Start等机制，少量的丢包会导致发送端发送速率大幅度回撤，恢复到正常水平需要一段比较长的时间，从而导致性能问题。解决方案有：Fast Retransmit，Fast Recovery，Selective Acknowledgement等。
+由于TCP协议的Slow Start等机制，少量的丢包会导致发送端发送速率大幅度回撤，恢复到正常水平需要一段比较长的时间，从而导致性能问题。TCP协议自身的解决方案有：Fast Retransmit，Fast Recovery，Selective Acknowledgement等。
 
 Fast Retransmit：普通情况下，TCP发送端需要等待timeout才能重新发送一个包；但是有了Fast Retransmit，发送端如果收到多个duplicated ack包（一般是三个重复包，总共四个），就会马上重传，放弃继续等待timeout。
 
@@ -34,5 +34,5 @@ Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内�
 
 > **注意**：Congestion Control主要是从发送端来进行控制，避免导致整个链路拥塞，重点在于感知整个链路的健康状况并作出相应的调整。而TCP的Flow Control（主要是通过[滑动窗口-sliding window](https://en.wikipedia.org/wiki/Sliding_window_protocol)），则主要是接收端主动控制，避免发送端发送过多数据给自己。
 
-
+注：由于默认的Congestion Control算法存在诸多的问题，进而影响网络的吞吐量，所有有很多新的算法出来，比如 [BBR](https://cloud.google.com/blog/products/gcp/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster)
 
