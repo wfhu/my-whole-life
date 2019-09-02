@@ -44,7 +44,7 @@ Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内�
 
 > **注意**：Congestion Control主要是从发送端来进行控制，避免导致整个链路拥塞，重点在于感知整个链路的健康状况并作出相应的调整。而TCP的Flow Control（主要是通过[滑动窗口-sliding window](https://en.wikipedia.org/wiki/Sliding_window_protocol)），则主要是接收端主动控制，避免发送端发送过多数据给自己。
 
-由于各个厂商对于TCP的Congestion Control算法存在诸多不同的诉求，所有有很多新的算法出来，比如 [BBR](https://cloud.google.com/blog/products/gcp/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster)
+由于各个厂商对于TCP的Congestion Control算法存在诸多不同的诉求和改进需要，所有有很多新的算法出来，比如 [BBR](https://cloud.google.com/blog/products/gcp/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster)
 
 关于Reno/Cubic/Vegas/BBR等拥塞算法，可以参考这篇文章：[https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/](https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/)
 
