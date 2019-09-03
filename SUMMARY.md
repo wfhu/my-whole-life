@@ -33,6 +33,7 @@
   * [街头的哭泣](chapter4-dreams/jie-tou-de-ku-qi.md)
   * [谈话](chapter4-dreams/tan-hua.md)
   * [片段](chapter4-dreams/pian-duan.md)
+  * [空中电台的谈话](chapter4-dreams/radio-on-air.md)
 * [第五：社论及呼喊](chapter5-society.md)
   * [【列表】问题列表](chapter5-society/social-problem-list.md)
 * [第六：专题思考与总结](/chapter6.md)
