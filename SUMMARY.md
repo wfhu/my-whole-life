@@ -17,7 +17,7 @@
   * [3、深圳-博雅-LLQ阶段（2012.2-2015.6）](chapter2/work-at-shenzhen-boyaa-llq.md)
   * [4、深圳-博雅-LZY阶段（2015.6-2016.5）](chapter2/work-at-shenzhen-boyaa-lzy.md)
   * [5、深圳-博雅-QBQ阶段（2016.6-2018.8）](chapter2/work-at-shenzhen-boyaa-qbq.md)
-    * [【管理】批评与自我批评](chapter2/53001-shen-5733-bo-96c5-qbq-jie-duan-ff08-2016-6-2018-8/3010-guan-li-3011-pi-ping-yu-zi-wo-pi-ping.md)
+    * [【管理】批评与自我批评](chapter2/work-at-shenzhen-boyaa-qbq-dir/managerment-critcism-and-self-criticism.md)
   * [6、深圳-极光（2018.9-）](chapter2/work-at-shenzhen-jiguang-cb.md)
   * [【列表】非技术重点工作日志](chapter2/non-technique-work-problems.md)
 * [第三：读书与文艺简评](chapter3-read-books.md)
