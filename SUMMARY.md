@@ -19,6 +19,7 @@
   * [5、深圳-博雅-QBQ阶段（2016.6-2018.8）](chapter2/work-at-shenzhen-boyaa-qbq.md)
     * [【管理】批评与自我批评](chapter2/work-at-shenzhen-boyaa-qbq-dir/managerment-critcism-and-self-criticism.md)
   * [6、深圳-极光-CB阶段（2018.9-2019.9）](chapter2/work-at-shenzhen-jiguang-cb.md)
+  * [7、深圳-极光-ZYZ阶段（2019.9-）](chapter2/work-at-shenzhen-jiguang-zyz.md)
   * [【列表】非技术重点工作日志](chapter2/non-technique-work-problems.md)
 * [第三：读书与文艺简评](chapter3-read-books.md)
   * [读书清单](chapter3-read-books/13001-du-shu-qing-dan.md)
