@@ -12,7 +12,7 @@
   * [7、参加工作-深圳（2011-2018）](chapter1/work-at-shenzhen.md)
   * [【列表】生活琐碎日志](chapter1/fragments-of-life.md)
 * [第二：通鉴-工作篇](chapter2.md)
-  * [1、广州-网易-TJR（2008.7-2011.9）](chapter2/13001-guang-5dde-wang-6613-tjr-2008-7-2011-9.md)
+  * [1、广州-网易-TJR（2008.7-2011.9）](chapter2/work-at-guangzhou-netease.md)
   * [2、深圳-腾讯-ZYB（2011.9-2011.12）](chapter2/23001-shen-5733-teng-8baf-zyb-2011-9-2011-12.md)
   * [3、深圳-博雅-LLQ阶段（2012.2-2015.6）](chapter2/33001-shen-5733-bo-96c5-llq-jie-duan-ff08-2012-2-2015-6.md)
   * [4、深圳-博雅-LZY阶段（2015.6-2016.5）](chapter2/43001-shen-5733-bo-96c5-lzy-jie-duan-ff08-2015-6-2016-5.md)
