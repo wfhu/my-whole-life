@@ -21,13 +21,16 @@
 * 在带宽比较大的情况下，在降速之后再恢复回原来的带宽利用率耗时较长（10G带宽+30msRTT，需要3.5小时才能让带宽从5G提升到10G）。
 
 * Congestion Avoidance理论上会一直增加（每个RTT增加一个segment），最终会导致out-of-order ACK反馈的发生，所以最终会导致类似锯齿状（sawtooth）的带宽使用情况。
+
 * 如果发生丢包导致的timeout的情况，Reno就丢失了整个流控制的ACK反馈信号，只能重新开始整个session的管理（slow-start）。
 
 三、BIC及CUBIC流控制算法：
 
 * BIC基于二分查找算法（binary chop）来从out-of-order的ACK反馈中恢复发送速率。
 * BIC有一个最大的常量限制，而且一般比Reno算法固定的一个segment要大一些。
-* BIC在低RTT网络环境下，表现得非常的激进（很容易在短时间内又超过上次碰到的最大值）。
+* BIC在低RTT网络环境下，表现得非常的激进（很容易在短时间内又超过上次碰到的最大值），BIC使用指数函数（exponential function）来管理这个流的发送数据大小。
+* CUBIC是BIC的一种改进，它使用三阶多项式函数（third-order polynomial function）来管理流数据大小。
+* CUBIC对out-of-order的ACK反馈反应程度比Reno小，而且能更快地恢复到原来的flow rate
 
 
 
