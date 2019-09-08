@@ -16,11 +16,11 @@
 
 三、Reno流控制算法，基于ACK反馈，它的特点在于：
 
-* Reno的流控制，最终会导致类似锯齿状（sawtooth）的带宽使用情况。
-
 * 对out-of-order的ACK反馈包的反应比较敏感（会把发送速率降低到原来的一半）。
-* 在带宽比较大的情况下，在降速之后再恢复回原来的带宽利用率耗时较长（10G带宽+30msRTT，需要3.5小时才能让带宽从5G提升到10G）。
-* Congestion Avoidance会一直增加（每个RTT增加一个segment），最终会导致丢包的发生。
 
+* 在带宽比较大的情况下，在降速之后再恢复回原来的带宽利用率耗时较长（10G带宽+30msRTT，需要3.5小时才能让带宽从5G提升到10G）。
+* Congestion Avoidance理论上会一直增加（每个RTT增加一个segment），最终会导致out-of-order ACK反馈的发生，所以最终会导致类似锯齿状（sawtooth）的带宽使用情况。
+* 如果发生丢包导致的timeout的情况，Reno就丢失了整个流控制的ACK反馈信号，只能重新开始整个session的管理（slow-start）。
+* 
 
 
