@@ -40,7 +40,7 @@ Vegas传输速度也是线性恢复的，这一点和Reno类似。另外一个�
 * BIC有一个最大的常量限制，而且一般比Reno算法固定的一个segment要大一些。
 * BIC在低RTT网络环境下，表现得非常的激进（很容易在短时间内又超过上次碰到的最大值），BIC使用指数函数（exponential function）来管理这个流的发送数据大小。
 * CUBIC是BIC的一种改进，它使用三阶多项式函数（third-order polynomial function）来管理流数据大小。
-* CUBIC对out-of-order的ACK反馈反应程度比Reno小，而且能更快地恢复到原来的flow rate
+* CUBIC对out-of-order的ACK反馈，回撤程度比Reno小，而且能更快地恢复到原来的flow rate
 
 
 
