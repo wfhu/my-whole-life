@@ -10,6 +10,10 @@
 
 参考链接一：[https://blog.csdn.net/dog250/article/details/52895080](https://blog.csdn.net/dog250/article/details/52895080)
 
+参考链接二：[https://www.ietf.org/proceedings/97/slides/slides-97-iccrg-bbr-congestion-control-02.pdf](https://www.ietf.org/proceedings/97/slides/slides-97-iccrg-bbr-congestion-control-02.pdf)
+
+参考链接三：[https://queue.acm.org/detail.cfm?id=3022184](https://queue.acm.org/detail.cfm?id=3022184)
+
 **核心理解：**
 
 整个传输线路有三种状态：**空闲**（包来了马上得到处理）、**排队**（处理不过来了，先放到队列里面等着）、**丢包**（队列都塞满了，只能丢弃）；
