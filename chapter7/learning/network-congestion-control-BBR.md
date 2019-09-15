@@ -52,5 +52,17 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 * CUBIC是BIC的一种改进，它使用三阶多项式函数（third-order polynomial function）来管理流数据大小。
 * CUBIC对out-of-order的ACK反馈，回撤程度比Reno小，而且能更快地恢复到原来的flow rate
 
+---
+
+**原文链接**：[https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/](https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/)
+
+**标题**：BBR: Congestion-based congestion control
+
+**阅读时间**：2019年9月
+
+**核心摘要**：
+
+BBR降低了网络的RTT，全球平均降低53%，在发展中国家降低80%。
+
 
 
