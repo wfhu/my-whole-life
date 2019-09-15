@@ -60,6 +60,8 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 
 **阅读时间**：2019年9月
 
+说明：文章本身就是一篇阅读理解
+
 **核心摘要**：
 
 BBR降低了网络的RTT，全球平均降低53%，在发展中国家降低80%。
@@ -68,9 +70,15 @@ BBR降低了网络的RTT，全球平均降低53%，在发展中国家降低80%�
 
 对TCP的性能来讲，重要的几个概念：
 
-* round-trip propagation time \(RTprop\)
+* round-trip propagation time \(RTprop\)
 * bottleneck bandwidth, BtlBw \(the bandwidth at the slowest link in each direction\)
-* _Bandwidth Delay Product \(BDP\) _is the maximum possible amount of data in transit in a network, and is obtained by multiplying the bottleneck bandwidth and round-trip propagation time.
+* \_Bandwidth Delay Product \(BDP\) \_is the maximum possible amount of data in transit in a network, and is obtained by multiplying the bottleneck bandwidth and round-trip propagation time.
 
 网络的最佳运行点（optimal operating point）在于：刚好在BDP的阈值；而loss-based congestion control算法则运行在BDP+bottleneck buffer
+
+BBR追踪两个基本的数据：bottleneck bandwidth and round-trip propagation time
+
+
+
+
 
