@@ -56,7 +56,7 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 
 **原文链接**：[https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/](https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/)
 
-**标题**：BBR: Congestion-based congestion control
+**标题**：BBR: Congestion-based congestion control
 
 **阅读时间**：2019年9月
 
@@ -64,5 +64,5 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 
 BBR降低了网络的RTT，全球平均降低53%，在发展中国家降低80%。
 
-
+传统的loss-based congestion control（比如CUBIC）的问题主要在于：把packet loss和congestion等同起来了；而现在这个两个事情并不能简单的等同起来。
 
