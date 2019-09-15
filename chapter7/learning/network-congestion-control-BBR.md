@@ -80,3 +80,5 @@ BBR追踪两个基本的数据：bottleneck bandwidth and round-trip propagation
 
 BBR每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
 
+BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（延迟本身主要是因为手机-SGSN \(serving GPRS support node\)直接的buffer导致，150KB-10MB）。
+
