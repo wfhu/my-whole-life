@@ -78,5 +78,5 @@ BBR降低了网络的RTT，全球平均降低53%，在发展中国家降低80%�
 
 BBR追踪两个基本的数据：bottleneck bandwidth and round-trip propagation time
 
-BBR每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（倍数）。
+BBR每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
 
