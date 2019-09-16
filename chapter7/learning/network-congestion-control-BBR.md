@@ -98,3 +98,9 @@ BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（�
 
 目前loss-based congestion control算法（例如CUBIC），在buffer很大的情况下，会引发[bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat)问题（delay比较大，delay的jitter也比较大）；在buffer很小的情况下，会误把丢包当做congestion，导致较低的吞吐量。
 
+TCP传输三大限制常量：RTprop（管子的长度），BltBw\(bottleneck bandwidth\)（管子中间的最小直径），bottleneck buffer。
+
+因以上三个限制，引发传输的三个阶段：app-limited（应用不够快），bandwidth-limited（处理不过来了，但是buffer还有空间），buffer-limited（不但处理不过来，而且buffer也被占满了）。
+
+
+
