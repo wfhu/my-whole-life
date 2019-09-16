@@ -84,3 +84,15 @@ BBR每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandw
 
 BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（延迟本身主要是因为手机-SGSN \(serving GPRS support node\)直接的buffer导致，150KB-10MB）。
 
+---
+
+**原文链接**：[https://queue.acm.org/detail.cfm?id=3022184](https://queue.acm.org/detail.cfm?id=3022184)
+
+**标题**：BBR: Congestion-Based Congestion Control
+
+**副标题**：Measuring bottleneck bandwidth and round-trip propagation time
+
+**核心理解**：
+
+
+
