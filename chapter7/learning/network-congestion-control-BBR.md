@@ -102,5 +102,11 @@ TCP传输三大限制常量：RTprop（管子的长度），BltBw\(bottleneck ba
 
 因以上三个限制，引发传输的三个阶段：app-limited（应用不够快），bandwidth-limited（处理不过来了，但是buffer还有空间），buffer-limited（不但处理不过来，而且buffer也被占满了）。
 
-大的buffer可以是BDP的几个数量级大小，可能导致增加数秒的RTT，从而增加整个延迟。
+大的buffer可以是BDP（BDP =BtlBw × RTprop）的几个数量级大小，可能导致增加数秒的RTT，从而增加整个延迟。
+
+通过测量这两个参数（bottleneck bandwidth and round-trip propagation time, or BBR）：从不确定性中（ambiguities）寻找到Kleinrock's optimal operating point。
+
+当管道100%利用的时候，并不意味着没有queue（比如第一次发送10个包，然后稳定地发送5个包，刚好管道的速率也是5，那么就会保持一个永远不能消失的5个包的队列），进而导致delay。
+
+
 
