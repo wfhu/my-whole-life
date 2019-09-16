@@ -94,5 +94,7 @@ BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（�
 
 **核心理解**：
 
+当前TCP网络慢的主要问题在于：把packet loss理解成了congestion，这在1980s那个年代是对的，因为技术条件的限制。
 
+目前loss-based congestion control算法（例如CUBIC），在buffer很大的情况下，会引发bufferbloat问题（delay比较大，delay的jitter也比较大）；在buffer很小的情况下，会误把丢包当做congestion，导致较低的吞吐量。
 
