@@ -62,9 +62,11 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 
 说明：文章本身就是一篇阅读理解
 
+参考链接一：[https://datatracker.ietf.org/meeting/100/materials/slides-100-iccrg-a-quick-bbr-update-bbr-in-shallow-buffers/](https://datatracker.ietf.org/meeting/100/materials/slides-100-iccrg-a-quick-bbr-update-bbr-in-shallow-buffers/)
+
 **核心摘要**：
 
-BBR降低了网络的RTT，全球平均降低53%，在发展中国家降低80%。
+BBR降低了网络的RTT，全球平均降低53%，在发展中国家降低80%。（主要是因为它尽量避免使用queue）
 
 传统的loss-based congestion control（比如CUBIC）的问题主要在于：把packet loss和congestion等同起来了；而现在这个两个事情并不能简单的等同起来。
 
