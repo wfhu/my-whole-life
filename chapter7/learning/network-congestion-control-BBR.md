@@ -106,5 +106,7 @@ TCP传输三大限制常量：RTprop（管子的长度），BltBw\(bottleneck ba
 
 通过测量这两个参数（bottleneck bandwidth and round-trip propagation time, or BBR）：从不确定性中（ambiguities）寻找到Kleinrock's optimal operating point。
 
+当管道100%利用的时候，并不意味着没有queue（比如第一次发送10个包，然后稳定地发送5个包，刚好管道的速率也是5，那么就会保持一个永远不能消失的5个包的队列），进而导致delay。
+
 
 
