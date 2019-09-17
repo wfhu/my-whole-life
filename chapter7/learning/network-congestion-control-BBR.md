@@ -112,3 +112,5 @@ TCP传输三大限制常量：RTprop（管子的长度），BltBw\(bottleneck ba
 
 pacing\_gain是BBR的最重要的调节参数；会以BtlBw x pacing\_gain的速率来发送。
 
+BBR分为四个阶段：startup，drain，ProbeBW，ProbeRTT；大部分的时间会花在ProbeBW阶段；
+
