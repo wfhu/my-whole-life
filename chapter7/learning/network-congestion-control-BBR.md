@@ -110,3 +110,5 @@ TCP传输三大限制常量：RTprop（管子的长度），BltBw\(bottleneck ba
 
 由于对buffer的使用情况不一样，短的连接和请求（比如request/response的类型连接）适合探测真实的RTprop，但是却无法获知BtlBw；大数据量、持续时间较长的连接适合探测BtlBw，但是却无法获知真实的RTprop（除了开始几个RTT数据之外）。
 
+pacing\_rate和cwnd\_gain是BBR的两个重要调节参数；
+
