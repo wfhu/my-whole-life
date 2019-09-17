@@ -114,3 +114,7 @@ pacing\_gain是BBR的最重要的调节参数；会以BtlBw x pacing\_gain的速
 
 BBR分为四个阶段：startup，drain，ProbeBW，ProbeRTT；大部分的时间会花在ProbeBW阶段；
 
+CUBIC只能一直增加，直到丢包发生或者接受者的inflight limit（receiver window size），才停止增加传输速率。
+
+
+
