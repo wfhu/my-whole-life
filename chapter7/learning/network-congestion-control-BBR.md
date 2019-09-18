@@ -112,9 +112,9 @@ TCP传输三大限制常量：RTprop（管子的长度），BltBw\(bottleneck ba
 
 pacing\_gain是BBR的最重要的调节参数；会以BtlBw x pacing\_gain的速率来发送。
 
-BBR分为四个阶段：startup，drain，ProbeBW，ProbeRTT；大部分的时间会花在ProbeBW阶段；
+BBR分为四个阶段：STARTUP，DRAIN，ProbeBW，ProbeRTT；大部分的时间会花在ProbeBW阶段；
+
+ProbeRTT：每隔几秒会进入一次ProbeRTT阶段，它在至少一个RTT时间长度期间，把inflight包降低到4个，然后恢复来的状态；这一阶段主要是释放出queue，让其他的flow能探测到真实的RTprop数值，而当其他flow发现新的RTprop值时，也会触发进入ProbeRTT阶段。目的主要是保证公平和稳定。
 
 CUBIC只能一直增加，直到丢包发生或者接受者的inflight limit（receiver window size），才停止增加传输速率。
-
-
 
