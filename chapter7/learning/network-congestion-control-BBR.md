@@ -92,6 +92,8 @@ BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（�
 
 **副标题**：Measuring bottleneck bandwidth and round-trip propagation time
 
+参考链接：[https://tools.ietf.org/id/draft-cardwell-iccrg-bbr-congestion-control-00.html](https://tools.ietf.org/id/draft-cardwell-iccrg-bbr-congestion-control-00.html)
+
 **核心理解**：
 
 当前TCP网络慢的主要问题在于：把packet loss理解成了congestion，这在1980s那个年代是对的，因为技术条件的限制。
