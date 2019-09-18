@@ -1,4 +1,4 @@
-#### 【阅读笔记】网络之TCP拥塞控制算法BBR
+#### 详细惨【阅读笔记】网络之TCP拥塞控制算法BBR
 
 ---
 
@@ -114,7 +114,7 @@ pacing\_gain是BBR的最重要的调节参数；会以BtlBw x pacing\_gain的速
 
 BBR分为四个阶段：STARTUP，DRAIN，ProbeBW，ProbeRTT；大部分的时间会花在ProbeBW阶段；
 
-STARTUP：当BBR发现在三次尝试double传输速率时，但是实际上增加的量小于25%，则认为管道满了，退出STARTUP阶段，进入DRAIN阶段。
+STARTUP：当BBR发现在三次尝试double传输速率时，但是实际上增加的量小于25%，则认为管道满了，退出STARTUP阶段，进入DRAIN阶段。详细参考：[Startup](https://tools.ietf.org/id/draft-cardwell-iccrg-bbr-congestion-control-00.html#estimating-when-startup-has-filled-the-pipe)
 
 ProbeBW：每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（所谓的pacing\_gain，即倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
 
