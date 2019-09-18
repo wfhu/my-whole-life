@@ -116,6 +116,8 @@ BBR分为四个阶段：STARTUP，DRAIN，ProbeBW，ProbeRTT；大部分的时�
 
 STARTUP：当BBR发现在三次尝试double传输速率时，但是实际上增加的量小于25%，则认为管道满了，退出STARTUP阶段，进入DRAIN阶段。详细参考：[Startup](https://tools.ietf.org/id/draft-cardwell-iccrg-bbr-congestion-control-00.html#estimating-when-startup-has-filled-the-pipe)
 
+DRAIN：主要是释放掉在STARTUP阶段造成的queue，以降低后续的延迟；它的pacing\_gain是STARTUP时期的倒数。
+
 ProbeBW：每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（所谓的pacing\_gain，即倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
 
 ProbeRTT：每隔几秒会进入一次ProbeRTT阶段，它在至少一个RTT时间长度期间，把inflight包降低到4个，然后恢复来的状态；这一阶段主要是释放出queue，让其他的flow能探测到真实的RTprop数值，而当其他flow发现新的RTprop值时，也会触发进入ProbeRTT阶段。目的主要是保证公平和稳定。
