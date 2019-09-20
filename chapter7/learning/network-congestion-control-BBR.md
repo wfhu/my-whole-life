@@ -118,6 +118,8 @@ BBR分为四个阶段：STARTUP，DRAIN，ProbeBW，ProbeRTT；大部分的时�
 
 STARTUP：当BBR发现在三次尝试double传输速率时，但是实际上增加的量小于25%，则认为管道满了，退出STARTUP阶段，进入DRAIN阶段。详细参考：[Startup](https://tools.ietf.org/id/draft-cardwell-iccrg-bbr-congestion-control-00.html#estimating-when-startup-has-filled-the-pipe)
 
+这里和CUBIC的slow-start的核心区别在于：slow-start是基于丢包才停止的，而BBR是基于对带宽增长的停滞而退出这个阶段。
+
 DRAIN：主要是释放掉在STARTUP阶段造成的queue，以降低后续的延迟；它的pacing\_gain是STARTUP时期的倒数。
 
 ProbeBW：每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（所谓的pacing\_gain，即倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
