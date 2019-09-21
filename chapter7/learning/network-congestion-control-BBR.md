@@ -138,3 +138,8 @@ CUBIC只能一直增加，直到丢包发生或者接受者的inflight limit（r
 
 BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting/102/materials/slides-102-iccrg-bbr-startup-behavior-00](https://datatracker.ietf.org/meeting/102/materials/slides-102-iccrg-bbr-startup-behavior-00)
 
+* 大量的flow没有退出过STARTUP阶段。降低pacing gain，从2.89降低到2.
+* DRAIN阶段的pacing rate太低，时间太长。
+
+
+
