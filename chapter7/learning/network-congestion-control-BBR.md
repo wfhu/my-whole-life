@@ -134,5 +134,7 @@ CUBIC只能一直增加，直到丢包发生或者接受者的inflight limit（r
 >
 > 我阅读BBR相关资料，发现真正能把原理说清楚的还是IETF描述文档和作者们的原始发布文档。
 
+---
 
+BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting/102/materials/slides-102-iccrg-bbr-startup-behavior-00](https://datatracker.ietf.org/meeting/102/materials/slides-102-iccrg-bbr-startup-behavior-00)
 
