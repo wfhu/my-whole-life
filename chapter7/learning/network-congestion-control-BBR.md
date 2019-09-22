@@ -141,5 +141,9 @@ BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting
 * 大量的flow没有退出过STARTUP阶段。降低pacing gain，从2.89降低到2.
 * DRAIN阶段的pacing rate太低，时间太长。
 
+其他参考链接：
+
+[_ Making Linux TCP Fast_](https://pdfs.semanticscholar.org/3013/e17706df21957f53579f53fc67967f3bb548.pdf) 文章介绍了BBR、TSO、Pacing等发送端的优化方案。
+
 
 
