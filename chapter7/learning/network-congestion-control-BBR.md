@@ -145,5 +145,13 @@ BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting
 
 [_ Making Linux TCP Fast_](https://pdfs.semanticscholar.org/3013/e17706df21957f53579f53fc67967f3bb548.pdf) 文章介绍了BBR、TSO、Pacing等发送端的优化方案。
 
+---
+
+BBR对比CUBIC实际效果，速度上去了5倍：
+
+环境：Amazon Linux 2
+
+![](/assets/BBR-CUBIC-youtube.png)![](/assets/BBR-BBR-youtube.png)
+
 
 
