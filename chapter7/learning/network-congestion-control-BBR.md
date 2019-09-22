@@ -149,7 +149,7 @@ BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting
 
 **验证真实效果**
 
-BBR对比CUBIC实际效果，速度上去了5倍：
+BBR对比CUBIC实际效果，速度上去了5倍，有质的改变：
 
 环境：Amazon Linux 2；
 
