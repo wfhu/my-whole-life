@@ -155,6 +155,11 @@ BBR对比CUBIC实际效果，速度上去了5倍：
 
 区域：新加坡；
 
+```
+uname -a
+Linux ip-xxx.ap-southeast-1.compute.internal 4.14.123-111.109.amzn2.x86_64 #1 SMP Mon Jun 10 19:37:57 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+```
+
 默认是cubic，使用以下命令修改为bbr，断开并重新连接：
 
 ```
