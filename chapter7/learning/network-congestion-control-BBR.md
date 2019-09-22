@@ -147,11 +147,21 @@ BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting
 
 ---
 
+**验证真实效果**
+
 BBR对比CUBIC实际效果，速度上去了5倍：
 
-环境：Amazon Linux 2
+环境：Amazon Linux 2；
+
+区域：新加坡；
+
+默认是cubic，使用以下命令修改为BBR，断开并重新连接：
+
+```
+modprobe tcp_bbr
+modprobe sch_fq
+sysctl -w net.ipv4.tcp_congestion_control=bbr
+```
 
 ![](/assets/BBR-CUBIC-youtube.png)![](/assets/BBR-BBR-youtube.png)
-
-
 
