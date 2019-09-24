@@ -188,3 +188,5 @@
 
 《纳什均衡与博弈论》
 
+《系统之美》（Thinking in Systems: A Primer）
+
