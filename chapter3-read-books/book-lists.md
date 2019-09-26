@@ -44,7 +44,7 @@
 
 《老子今注今译》
 
-《庄子今注今译》
+[《庄子今注今译》](/chapter3-read-books/zhuang-zi-jin-zhu-jin-yi.md)
 
 《楚辞》
 
