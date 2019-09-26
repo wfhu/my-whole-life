@@ -116,7 +116,7 @@
 
 《尼采：在世纪的转折点上》
 
-《直面内心的恐惧》
+[《直面内心的恐惧》](/chapter3-read-books/zhi-mian-nei-xin-de-kong-ju.md)
 
 ## 经济和政治
 
