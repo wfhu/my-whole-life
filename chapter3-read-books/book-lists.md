@@ -126,7 +126,7 @@
 
 ## 管理和思考
 
-《褚时健 影响企业家的企业家》
+[《褚时健 影响企业家的企业家》](/chapter3-read-books/chu-shi-jian--ying-xiang-qi-ye-jia-de-qi-ye-jia.md)
 
 《赢》
 
