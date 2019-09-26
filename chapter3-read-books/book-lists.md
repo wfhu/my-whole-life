@@ -48,7 +48,7 @@
 
 《楚辞》
 
-《楚辞补注》
+[《楚辞补注》](/chapter3-read-books/li-sao.md)
 
 《诗经》
 
