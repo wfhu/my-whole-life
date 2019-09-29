@@ -208,3 +208,5 @@
 
 《系统之美》（Thinking in Systems: A Primer）
 
+《这就是OKR》
+
