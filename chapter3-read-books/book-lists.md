@@ -14,9 +14,7 @@
 
 ## 中国历史
 
-《史记》
-
-精彩
+[《史记》](/chapter3-read-books/history-book-shi-ji.md)
 
 《资治通鉴》
 
