@@ -29,6 +29,7 @@
     * [《高效能人士的七个习惯》](chapter3-read-books/seven-habits.md)
     * [《褚时健：影响企业家的企业家》](chapter3-read-books/chu-shi-jian--ying-xiang-qi-ye-jia-de-qi-ye-jia.md)
     * [《史记》](chapter3-read-books/history-book-shi-ji.md)
+    * [《按自己的意愿过一生》](chapter3-read-books/book-shape-your-life.md)
   * [电影与电视剧](chapter3-read-books/tv-drama-and-film.md)
 * [第四：梦幻和狂想](chapter4-dreams.md)
   * [二十四小时的情侣](chapter4-dreams/lover-of-24-hours.md)
