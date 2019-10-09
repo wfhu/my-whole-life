@@ -41,6 +41,7 @@
   * [【列表】问题列表](chapter5-society/social-problem-list.md)
 * [第六：专题思考与总结](/chapter6.md)
   * [【列表】日常琐碎思考日志](chapter6/idea-lists.md)
+  * [人生讲座--活得明白](chapter6/ren-sheng-jiang-5ea7-huo-de-ming-bai.md)
 * [第七：工作、技术及专业内容](/chapter7.md)
   * [【列表】重要技术工作项目日志](chapter7/list-core-job-list.md)
   * [【方案】使用redis hash和bitfield替换简单kv](chapter7/redis-hash-and-bitfield-replace-simple-kv.md)
