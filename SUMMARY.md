@@ -55,6 +55,7 @@
     * [【阅读笔记】Redis-Cluster-Specification](chapter7/learning/redis-cluster-specification.md)
     * [【阅读笔记】Kubernetes in Action](chapter7/learning/kubernetes-in-action.md)
     * [【阅读笔记】网络之TCP拥塞控制算法BBR](chapter7/learning/network-congestion-control-BBR.md)
+    * [ITIL学习与理解](chapter7/learning/itilxue-xi-yu-li-jie.md)
 * [第八：个人生活及琐碎](chapter8.md)
   * [名言与俗语](chapter8/famous-sayings.md)
   * [育儿思考与计划](chapter8/baby-future-and-plan.md)
