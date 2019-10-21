@@ -10,7 +10,5 @@ ITIL Service Transition（服务转移）
 
 ITIL Service Operation（服务运营）
 
-ITIL Continual Service Improvement
-
-
+ITIL Continual Service Improvement（服务持续改进）
 
