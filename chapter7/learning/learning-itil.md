@@ -10,5 +10,17 @@ ITIL五大服务生命周期
 * ITIL Service Operation（服务运营）
 * ITIL Continual Service Improvement（服务持续改进）
 
+当前有用到的核心流程：
+
+问题管理
+
+故障管理
+
+发布变更管理
+
+
+
+
+
 
 
