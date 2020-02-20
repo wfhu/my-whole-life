@@ -19,7 +19,7 @@
 * CPU负载从30下降到8
 * context switch从60K下降到40k
 * cpu usage下降
-* nginx服务延迟下降
+* nginx服务平均延迟下降\(\)
 * nginx慢请求数量下降
 
 ---
