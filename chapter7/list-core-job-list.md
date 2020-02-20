@@ -156,7 +156,7 @@ OpenStack的多个VM，两倍多地超分了CPU资源，即使某一个VM的CPU�
 
 效果和收益：每日磁盘空间从5.3T下降到3.5T，下降34%；CPU利用率从40%下降到25%，下降37%
 
-ES版本：2.3.5，参考文档：[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/mapping-index.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.3/mapping-index.html)
+ES版本：2.3.5（还没有text和keyword）参考文档：[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/mapping-index.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.3/mapping-index.html)
 
 应用新mapping具体时间：2019年12月10日（20191211索引生效）
 
@@ -185,7 +185,7 @@ ES版本：2.3.5，参考文档：[https://www.elastic.co/guide/en/elasticsearch
             "type": "long"
           },
           "json_string": {
-            "type": "string"  --->不需要分词，增加 "index": "not_analyzed"
+            "type": "string"  --->不需要分词和索引，增加 "index": "no"
           },
           "msg_content": {
             "type": "string",
