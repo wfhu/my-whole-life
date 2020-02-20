@@ -224,7 +224,11 @@ ES版本：2.3.5，参考文档：[https://www.elastic.co/guide/en/elasticsearch
 
 优化效果：
 
-单天的索引占用磁盘大小从5.3T下降到3.5T，下降34%
+磁盘空间：单天的索引占用磁盘大小从5.3T下降到3.5T，下降34%
 
-![](/assets/es-mapping-result-disk01.png)
+![](/assets/es-mapping-result-disk002.png)
+
+CPU利用率：从峰值的40%下降到峰值的25%左右， 
+
+![](/assets/es-mapping-result-cpu001.png)
 
