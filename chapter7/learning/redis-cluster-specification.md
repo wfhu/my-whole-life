@@ -38,9 +38,9 @@ Cluster Node之间通讯的端口：在普通客户端口上增加10000；是二
 
 通过CLUSTER SETSLOT指令（针对某个slot里面的全部key，会下发MIGRATE指令），可以将某个slot和node关联起来。
 
-MOVED指令：客户端一般建议更新slot-&gt;node的map信息；但是ASK指令，客户端只是本次查询去查询新的node，接下来针对这个slot的请求还是往老的节点上去请求，主要目的就是满足slot迁移过程中某一个key可能在旧的也可能在新的node上的情况。
+客户端收到MOVED指令：客户端一般建议更新slot-&gt;node的map信息，因为MOVED指令意味着数据已经发生了迁移，直接更新map信息效率更高；但是ASK指令，客户端只是本次查询去查询新的node，接下来针对这个slot的请求还是往老的节点上去请求，主要目的就是满足slot迁移过程中某一个key可能在旧的也可能在新的node上的情况。
 
-聪明和高效的客户端，一般都需要在内存中记录slot-&gt;node的信息；在启动以及受到MOVED指令时，需要全局更新（有一个专门的、高效的、不需要解析的指令：CLUSTER SLOTS）。
+聪明和高效的客户端，一般都需要在内存中记录slot-&gt;node的信息；在启动以到MOVED指令时，需要全局更新（有一个专门的、高效的、不需要解析的指令：CLUSTER SLOTS）。
 
 multi-key的操作，如果key不存在或者在resharding过程中在不同节点上，会收到-TRYAGAIN的错误。
 
