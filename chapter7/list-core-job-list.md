@@ -176,7 +176,7 @@ ES版本：2.3.5（还没有text和keyword）参考文档：[https://www.elastic
 
 应用新mapping具体时间：2019年12月10日（20191211索引生效）
 
-索引优化具体内容：
+索引优化具体内容（带 ---&gt; 就是前后的变化）：
 
 ```
 {
@@ -188,14 +188,14 @@ ES版本：2.3.5（还没有text和keyword）参考文档：[https://www.elastic
         },
         "properties": {
           "api_type": {
-            "type": "long"  --> integer
+            "type": "long"  ---> integer
           },
           "appkey": {
             "type": "string",
             "index": "not_analyzed"
           },
           "errno": {
-            "type": "long"   --> integer
+            "type": "long"   ---> integer
           },
           "itime": {
             "type": "long"
@@ -213,7 +213,7 @@ ES版本：2.3.5（还没有text和keyword）参考文档：[https://www.elastic
             "type": "long"
           },
           "msg_type": {
-            "type": "long"  --> integer
+            "type": "long"  ---> integer
           },
           "platform": {
             "type": "string"
@@ -228,7 +228,7 @@ ES版本：2.3.5（还没有text和keyword）参考文档：[https://www.elastic
             "include_in_all": true
           },
           "send_source": {
-            "type": "long"  --> integer
+            "type": "long"  ---> integer
           },
           "total_user": {
             "type": "long"
