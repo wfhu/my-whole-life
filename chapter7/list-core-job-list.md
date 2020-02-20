@@ -14,9 +14,9 @@
 
 * 修改业务逻辑，避免产生新的无效数据。
 
-效果一：lbs数据总共约100亿条，清理无效数据31.5亿条，占比30%。
+效果一：lbs数据总共约100亿条，清理无效数据31.5亿条，占比30%。![](/assets/es-segment-lbs-doc-number.png)
 
-![](/assets/es-segment-lbs-doc-number.png)效果二：确定active/online索引只保存180天的数据，定时删除老索引
+效果二：确定active/online索引只保存180天的数据，定时删除老索引
 
 ![](/assets/es-segment-doc-datetime.png)
 
