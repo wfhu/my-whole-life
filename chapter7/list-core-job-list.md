@@ -154,7 +154,7 @@ OpenStack的多个VM，两倍多地超分了CPU资源，即使某一个VM的CPU�
 
 优化：分析索引的mapping，一个一个字段进行优化，包括是否需要分词、字段类型等
 
-ES版本：2.3.5，参考文档：https://www.elastic.co/guide/en/elasticsearch/reference/2.3/mapping-index.html
+ES版本：2.3.5，参考文档：[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/mapping-index.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.3/mapping-index.html)
 
 应用新mapping具体时间：2019年12月10日（20191211索引生效）
 
@@ -224,5 +224,7 @@ ES版本：2.3.5，参考文档：https://www.elastic.co/guide/en/elasticsearch/
 
 优化效果：
 
+单天的索引占用磁盘大小从5.3T下降到3.5T，下降34%
 
+![](/assets/es-mapping-result-disk01.png)
 
