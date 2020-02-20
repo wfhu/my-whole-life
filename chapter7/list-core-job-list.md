@@ -154,5 +154,73 @@ OpenStack的多个VM，两倍多地超分了CPU资源，即使某一个VM的CPU�
 
 优化：分析索引的mapping，一个一个字段进行优化，包括是否需要分词、字段类型、是否需要开启索引等
 
+ES版本：2.3.5
+
+应用新mapping具体时间：2019年12月10日（20191211索引生效）
+
+索引优化具体内容：
+
+```
+{
+  "20191206": {
+    "mappings": {
+      "ik_v1": {
+        "_all": {
+          "analyzer": "ik_max_word"
+        },
+        "properties": {
+          "api_type": {
+            "type": "long"  --> integer
+          },
+          "appkey": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "errno": {
+            "type": "long"   --> integer
+          },
+          "itime": {
+            "type": "long"
+          },
+          "json_string": {
+            "type": "string"  --->不需要分词，增加 "index": "not_analyzed"
+          },
+          "msg_content": {
+            "type": "string",
+            "boost": 8,
+            "analyzer": "ik_max_word",
+            "include_in_all": true
+          },
+          "msg_id": {
+            "type": "long"
+          },
+          "msg_type": {
+            "type": "long"  --> integer
+          },
+          "platform": {
+            "type": "string"
+          },
+          "receiver_type": {
+            "type": "long"  ---> integer
+          },
+          "receiver_value": {
+            "type": "string",
+            "boost": 8,
+            "analyzer": "ik_max_word",
+            "include_in_all": true
+          },
+          "send_source": {
+            "type": "long"  --> integer
+          },
+          "total_user": {
+            "type": "long"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 
 
