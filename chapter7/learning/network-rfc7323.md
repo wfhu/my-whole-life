@@ -52,5 +52,13 @@ Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内�
 
 #### 二、TCP的可靠性
 
+重复的sequence number主要来自两方面
+
+1、序列号的用完了被覆盖
+
+2、上一个链接的包被delay了
+
+
+
 
 
