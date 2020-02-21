@@ -56,9 +56,5 @@ Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内�
 
 1、序列号的用完了被覆盖
 
-2、上一个链接的包被delay了
-
-
-
-
+2、上一个链接的包被delay了，可以通过MSL以及
 
