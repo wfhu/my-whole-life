@@ -54,9 +54,9 @@ Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内�
 
 重复的sequence number主要来自两方面
 
-1、序列号的用完了被覆盖，可以通过PAWS彻底解决，利用了TCP Timestamps选项
+1、序列号溢出了、用完了被覆盖，可以通过PAWS彻底解决，利用了TCP Timestamps选项
 
-2、上一个链接的包被delay了，可以通过MSL以及临时端口的随机化来解决
+2、上一个session链接的包被delay了，可以通过MSL以及临时端口的随机化来解决
 
 #### 三、TCP选项-TCP Options
 
