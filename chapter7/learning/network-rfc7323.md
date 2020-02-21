@@ -60,5 +60,7 @@ Slow Start、Congestion Avoidance、Fast Retransmit、Fast Recovery，详细内�
 
 #### 三、TCP选项-TCP Options
 
+Window Scale Option只会在SYN包和对应的SYN-ACK包中设置
 
+Timestamps Option会在所有的数据包和ACK包中设置，不仅仅是SYN相关的包
 
