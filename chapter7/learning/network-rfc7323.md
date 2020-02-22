@@ -64,3 +64,7 @@ Window Scale Option只会在SYN包和对应的SYN-ACK包中设置
 
 Timestamps Option会在所有的数据包和ACK包中设置，不仅仅是SYN相关的包
 
+Window Scale的shift count最大只能是14，因为TCP会把sequence number不再2^31 bytes范围内的包丢弃，任务是“旧连接”的数据包，所以最大窗口必须小于2^31，也就是2^30；而TCP默认的Window Size是2^16，所以Window Scale最大只能到14
+
+
+
