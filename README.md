@@ -4,7 +4,11 @@
 
 无论是技术博客，还是生活博客，总感觉自己写的内容太过于凌乱和分散，思来复去来到gitbook，把这里作为自己整个对外发布内容的核心和枢纽；一切对外的一手资料都整理于此，其他的垂直分类等则主要从这里获取和整理。
 
-本书阅读地址：[https://wfhu.gitbooks.io/life/content/](https://wfhu.gitbooks.io/life/content/)
+本书阅读地址：[https://wfhu.gitbooks.io/life/content/](https://wfhu.gitbooks.io/life/content/)  （因gitbook迁移，本地址所含内容为2021年9月14日之前的内容，内容无法同步更新）
+
+最新阅读地址更新为：[https://huwenfeng.gitbook.io/my-whole-life/](https://huwenfeng.gitbook.io/my-whole-life/)
+
+
 
 ### 缘起
 
