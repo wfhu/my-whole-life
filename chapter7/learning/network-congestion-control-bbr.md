@@ -1,6 +1,4 @@
-#### 【阅读笔记】网络之TCP拥塞控制算法BBR
-
----
+# 【阅读笔记】网络之TCP拥塞控制算法BBR
 
 **原文链接**：[https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/](https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/)
 
@@ -37,11 +35,8 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 三、Reno流控制算法，基于ACK反馈，它的特点在于：
 
 * 对out-of-order的ACK反馈包的反应比较敏感（会把发送速率降低到原来的一半）。
-
 * 在带宽比较大的情况下，在降速之后再恢复回原来的带宽利用率耗时较长（10G带宽+30msRTT，需要3.5小时才能让带宽从5G提升到10G）。
-
 * Congestion Avoidance理论上会一直增加（每个RTT增加一个segment），最终会导致out-of-order ACK反馈的发生，所以最终会导致类似锯齿状（sawtooth）的带宽使用情况。
-
 * 如果发生丢包导致的timeout的情况，Reno就丢失了整个流控制的ACK反馈信号，只能重新开始整个session的管理（slow-start）。
 
 三、BIC及CUBIC流控制算法：
@@ -51,8 +46,6 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 * BIC在低RTT网络环境下，表现得非常的激进（很容易在短时间内又超过上次碰到的最大值），BIC使用指数函数（exponential function）来管理这个流的发送数据大小。
 * CUBIC是BIC的一种改进，它使用三阶多项式函数（third-order polynomial function）来管理流数据大小。
 * CUBIC对out-of-order的ACK反馈，回撤程度比Reno小，而且能更快地恢复到原来的flow rate
-
----
 
 **原文链接**：[https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/](https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/)
 
@@ -83,8 +76,6 @@ BBR追踪两个基本的数据：bottleneck bandwidth and round-trip propagation
 BBR每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
 
 BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（延迟本身主要是因为手机-SGSN \(serving GPRS support node\)直接的buffer导致，150KB-10MB）。
-
----
 
 **原文链接**：[https://queue.acm.org/detail.cfm?id=3022184](https://queue.acm.org/detail.cfm?id=3022184)
 
@@ -134,8 +125,6 @@ CUBIC只能一直增加，直到丢包发生或者接受者的inflight limit（r
 >
 > 我阅读BBR相关资料，发现真正能把原理说清楚的还是IETF描述文档和作者们的原始发布文档。
 
----
-
 BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting/102/materials/slides-102-iccrg-bbr-startup-behavior-00](https://datatracker.ietf.org/meeting/102/materials/slides-102-iccrg-bbr-startup-behavior-00)
 
 * 大量的flow没有退出过STARTUP阶段。降低pacing gain，从2.89降低到2.
@@ -143,9 +132,7 @@ BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting
 
 其他参考链接：
 
-[_ Making Linux TCP Fast_](https://pdfs.semanticscholar.org/3013/e17706df21957f53579f53fc67967f3bb548.pdf) 文章介绍了BBR、TSO、Pacing等发送端的优化方案。
-
----
+[ _Making Linux TCP Fast_](https://pdfs.semanticscholar.org/3013/e17706df21957f53579f53fc67967f3bb548.pdf) 文章介绍了BBR、TSO、Pacing等发送端的优化方案。
 
 **验证真实效果**
 
@@ -159,18 +146,18 @@ BBR对比CUBIC实际效果，速度上去了5倍，有质的改变：
 
 区域：新加坡；
 
-```
+```text
 uname -a
 Linux ip-xxx.ap-southeast-1.compute.internal 4.14.123-111.109.amzn2.x86_64 #1 SMP Mon Jun 10 19:37:57 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
 默认是cubic，使用以下命令修改为bbr，断开并重新连接：
 
-```
+```text
 modprobe tcp_bbr
 modprobe sch_fq
 sysctl -w net.ipv4.tcp_congestion_control=bbr
 ```
 
-![](/assets/BBR-CUBIC-youtube.png)![](/assets/BBR-BBR-youtube.png)
+![](../../.gitbook/assets/BBR-CUBIC-youtube.png)![](../../.gitbook/assets/BBR-BBR-youtube.png)
 

@@ -1,12 +1,8 @@
-## 专业相关学习资料清单
-
----
+# 【列表】专业相关学习资料清单
 
 参加工作后，经常会习惯于通过互联网搜索引擎或者在线文档资料来学习，但还是不可避免地存在学习碎片化、不全面、不深入等问题。为了知识的与时俱进，同时也保持自己的职业竞争力，针对某些很有价值的课题进行系统、全面、深入地学习是非常有必要的。
 
 本部分主要记录自己已经或正在学习的专业类书籍或学习资料，但不包括学校的教科书和某一具体技术或工具的使用教科书，主要集中在体系结构、操作系统、计算机网络、算法、编程语言等基础性内容；一方面是为自己列个学习备忘录，方便回顾自己的学习历程，也更容易对自己的知识结构进行查漏补缺；另一方面也是提醒自己要持续努力。
-
----
 
 [Computer Architecture: A Quantitative Approach](https://www.amazon.com/Computer-Architecture-Quantitative-Approach-Kaufmann/dp/0128119055/ref=sr_1_1?ie=UTF8&qid=1546241522&sr=8-1&keywords=computer+architecture+a+quantitative+approach)
 

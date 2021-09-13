@@ -1,6 +1,4 @@
-### 【优化】nginx启用reuseport
-
----
+# 【优化】nginx启用reuseport
 
 时间：2018年12月-2019年1月
 
@@ -9,8 +7,6 @@
 重点概括：
 
 * nginx开启SO\_REUSEPORT参数，优化多线程、高并发场景下的性能表现
-
----
 
 通过查看[nginx性能优化的文档](https://www.nginx.com/blog/performance-tuning-tips-tricks/)，看到一个点：启用reuseport，nginx在[1.9.1版本](https://www.nginx.com/blog/socket-sharding-nginx-release-1-9-1/)的时候已经加入了该支持，当然，也需要有合适的[Linux内核版本才能支持](https://lwn.net/Articles/542629/)。
 
@@ -22,11 +18,9 @@
 * nginx服务平均延迟下降（单个请求的最高延迟有可能会增加，详见文章最后说明和链接）
 * nginx慢请求数量下降
 
----
-
 修改参数如下，只需要在listen 端口后面加上 reuseport即可 ：
 
-```
+```text
 server {
         listen 80 reuseport;
         listen 443 ssl http2 reuseport;
@@ -75,25 +69,21 @@ LISTEN     512    511          *:443                      *:*
 31
 ```
 
----
-
 修改该参数前后对比如下：
 
-![](/assets/cpu-reuseport.png)
+![](../.gitbook/assets/cpu-reuseport.png)
 
-![](/assets/load-reuseport-import.png)
+![](../.gitbook/assets/load-reuseport-import.png)
 
-![](/assets/nginx-3s-trend-import.png)
+![](../.gitbook/assets/nginx-3s-trend-import.png)
 
-![](/assets/nginx-time-reuseport-import.png)
+![](../.gitbook/assets/nginx-time-reuseport-import.png)
 
-![](/assets/sock-mem-reuseport-import.png)
+![](../.gitbook/assets/sock-mem-reuseport-import.png)
 
-![](/assets/context-reuseport-import.png)
+![](../.gitbook/assets/context-reuseport-import.png)
 
 关于SO\_REUSERPORT的内容，详细的可以参考 [https://lwn.net/Articles/542629/](https://lwn.net/Articles/542629/) 和 [https://n0p.me/portsharding/](https://n0p.me/portsharding/)
-
----
 
 \*注意\*，启用REUSEPORT也可能导致一些意想不到的问题，比如单个请求处理的最大延迟可能会增加，可以参考 [https://blog.cloudflare.com/the-sad-state-of-linux-socket-balancing/](https://blog.cloudflare.com/the-sad-state-of-linux-socket-balancing/)
 

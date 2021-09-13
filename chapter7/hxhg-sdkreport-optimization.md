@@ -1,6 +1,4 @@
-## 【优化】sdk上报业务优化
-
----
+# 【优化】sdk上报业务优化
 
 时间：2018年11月-2019年1月
 
@@ -12,37 +10,31 @@
 * 通过使用ECC证书替换RSA证书，节省主机和带宽费用（约30万人民币/月）
 * 将上报协议从HTTP/HTTPS修改为TCP协议，彻底规避HTTPS协议和SSL证书，节省带宽和计算资源（约50万人民币/月）
 
----
+[优化效果](hxhg-sdkreport-optimization.md#sdkreport-result)
 
-[优化效果](#sdkreport-result)
+[业务描述](hxhg-sdkreport-optimization.md#sdkreport-desc)
 
-[业务描述](#sdkreport-desc)
+[优化第一阶段：优化Nginx代理为阿里云LB服务](hxhg-sdkreport-optimization.md#sdkreport-part1)
 
-[优化第一阶段：优化Nginx代理为阿里云LB服务](#sdkreport-part1)
+[优化第二阶段：优化带宽，启用ECC证书](hxhg-sdkreport-optimization.md#sdkreport-part2)
 
-[优化第二阶段：优化带宽，启用ECC证书](#sdkreport-part2)
+[第三阶段：上报业务从HTTP/HTTPS修改为TCP协议](hxhg-sdkreport-optimization.md#sdkreport-part3)
 
-[第三阶段：上报业务从HTTP/HTTPS修改为TCP协议](#sdkreport-part3)
+[项目总结](hxhg-sdkreport-optimization.md#sdkreport-lookback)
 
-[项目总结](#sdkreport-lookback)
-
----
-
-### 优化效果 {#sdkreport-result}
+## 优化效果 <a id="sdkreport-result"></a>
 
 2019-03-04更新：
 
 2月份的账单出来了，这是全量上线ecc证书后第一个完整周期的账单，实际节省带宽费用超过**30万人民币**。主要原因是阿里云的计费方式是[增强型95计费](https://helpcdn.aliyun.com/document_detail/89729.html)，目前峰值带宽下降到原来的三分之二左右（当然，2月只有28天，比1月少3天，也是一部分原因）。
 
-![](/assets/2019-02-ali-payment.png)
+![](../.gitbook/assets/2019-02-ali-payment.png)
 
-![](/assets/1-bandwidth-payment.png)
+![](../.gitbook/assets/1-bandwidth-payment.png)
 
-![](/assets/2-bandwidth-payment.png)
+![](../.gitbook/assets/2-bandwidth-payment.png)
 
----
-
-### **业务描述** {#sdkreport-desc}
+## **业务描述** <a id="sdkreport-desc"></a>
 
 25台阿里云ECS（32核+64G内存+300GB磁盘）+nginx+HTTPS做前端接入层，接收sdk上报过来的数据；根据域名、URL等做简单逻辑判断后，通过HTTP协议转发给12台后端ECS+nginx做进一步处理，之后便是redis/Kafka等存储和队列层。
 
@@ -50,9 +42,7 @@
 
 但这肯定不是长久之计，我们需要优化它。
 
----
-
-### **优化第一阶段：优化Nginx代理为阿里云LB服务** {#sdkreport-part1}
+## **优化第一阶段：优化Nginx代理为阿里云LB服务** <a id="sdkreport-part1"></a>
 
 当时碰到的问题是：随着用户量的不断地增长，上报业务量越来越大，而因为使用了HTTPS协议，导致CPU是整个系统的瓶颈资源。
 
@@ -69,7 +59,7 @@
 
 不失所望，SLB服务**几乎完美地**解决了我们的问题：
 
-![](/assets/SLB-property.png)
+![](../.gitbook/assets/SLB-property.png)
 
 通过对比我们的nginx服务器单机（详细数据暂时无法公开）和SLB服务的最大连接数、CPS、QPS的限制及相关费用，得出至少可以节省三分之二的费用。
 
@@ -99,11 +89,11 @@
 
 以下是自带的日志工具：
 
-![](/assets/slb-sls-search.png)
+![](../.gitbook/assets/slb-sls-search.png)
 
 也可以做固定的图表展示模板：
 
-![](/assets/SLB-sls-dashboard.png)
+![](../.gitbook/assets/SLB-sls-dashboard.png)
 
 但是，世界上没有完美的东西，太完美的东西都不太现实，SLB也带来了一个问题：
 
@@ -122,33 +112,31 @@
 1. 业务迁移上云，不是把机器搬上云主机就算上云了，还要考虑充分利用云提供的服务。
 2. 了解我们的供应商及其产品特点和最佳实践，非常重要。
 
----
-
-### **优化第二阶段：优化带宽**，启用ECC证书 {#sdkreport-part2}
+## **优化第二阶段：优化带宽**，启用ECC证书 <a id="sdkreport-part2"></a>
 
 业务当前的峰值总带宽约为12G，每天请求次数约150亿次，而且发现一个奇怪的问题：“流出带宽是流入带宽的2.5倍左右”，而业务逻辑是“数据上报”，正常状态下应该“流入大于流出才对”。
 
 这是一个值得深入研究的问题。
 
-#### 抓包分析
+### 抓包分析
 
 每次请求的量大致如下：
 
-> in：250 + 126 + 627  = 1003 bytes
+> in：250 + 126 + 627 = 1003 bytes
 >
 > out：1440 + 1440 + 416 + 258 + 270 + 34 = 3858 bytes
 
 这也解释了为什么从监控上看到“流出带宽大于流入带宽”:
 
-![](/assets/vpn-bw.png)
+![](../.gitbook/assets/vpn-bw.png)
 
-#### 技术原理分析
+### 技术原理分析
 
 熟悉HTTPS：
 
-![](/assets/HTTPS-communication.png)
+![](../.gitbook/assets/HTTPS-communication.png)
 
-通过分析，应用的特点是每次上报都需要和服务器建立一次连接，而由于是HTTPS的协议，导致整个流量大部分都被SSL握手和证书传递占用，真实的payload占用的流量比例很低（通过tcpdump抓包分析，不到20%）：![](/assets/tcpdump.png)
+通过分析，应用的特点是每次上报都需要和服务器建立一次连接，而由于是HTTPS的协议，导致整个流量大部分都被SSL握手和证书传递占用，真实的payload占用的流量比例很低（通过tcpdump抓包分析，不到20%）：![](../.gitbook/assets/tcpdump.png)
 
 优化的方向明确了：如何既满足业务的加密的需求，又降低每次请求的流量！
 
@@ -156,50 +144,48 @@
 
 经过一番查找和熟悉，发现目前HTTPS，证书有ECC格式，不旦证书小，而且CPU计算量会下降，还不降低加密强度，简直完美：
 
-![](/assets/ECC-rsa-certificate.png)
+![](../.gitbook/assets/ECC-rsa-certificate.png)
 
 关于ECC（椭圆曲线）和RSA，请参考：[https://www.namecheap.com/support/knowledgebase/article.aspx/9503/38/what-is-an-ecc-elliptic-curve-cryptography-certificate](https://www.namecheap.com/support/knowledgebase/article.aspx/9503/38/what-is-an-ecc-elliptic-curve-cryptography-certificate)
 
 目前，很多知名网站已经开始使用ECC证书了，比如google,cloudflare等
 
-![](/assets/google.png)
+![](../.gitbook/assets/google.png)
 
-![](/assets/cloudflare-ecc.png)
+![](../.gitbook/assets/cloudflare-ecc.png)
 
-#### 
-
-#### 对比验证
+### 对比验证
 
 马上行动，通过Let's Encrypt申请一个免费的ECC证书，和当前的RSA证书做个对比：  
-![](/assets/let-encrypt.png)
+![](../.gitbook/assets/let-encrypt.png)
 
 看看我们刚刚申请的ECC证书：
 
-![](/assets/ecc-cert-1.png)
+![](../.gitbook/assets/ecc-cert-1.png)
 
 对比一下原来的RSA证书：
 
-![](/assets/rsa-certificate.png)
+![](../.gitbook/assets/rsa-certificate.png)
 
 使用两台nginx服务器，一台使用ECC证书，另外一台使用RSA证书。
 
 为了对比能公正，我们首先要确保两台nginx请求量基本一致：
 
-![](/assets/delay.png)
+![](../.gitbook/assets/delay.png)
 
-![](/assets/PV.png)
+![](../.gitbook/assets/PV.png)
 
-![](/assets/UV.png)
+![](../.gitbook/assets/UV.png)
 
-![](/assets/NGX_status.png)
+![](../.gitbook/assets/NGX_status.png)
 
 运行16个小时后，可以看到ECC优势明显：
 
-![](/assets/nginx-ecc.png)![](/assets/nginx-default-rsa.png)
+![](../.gitbook/assets/nginx-ecc.png)![](../.gitbook/assets/nginx-default-rsa.png)
 
 运行七天之后统计：
 
-![](/assets/RSA-ECC-7day.png)
+![](../.gitbook/assets/RSA-ECC-7day.png)
 
 CPU使用率从超过50%下降到约25%，带宽下降到原来的88%左右。
 
@@ -212,11 +198,11 @@ CPU使用率从超过50%下降到约25%，带宽下降到原来的88%左右。
 
 ECC和RSA证书访问，使用tcpdump抓包对比，可以看到使用ECC证书后，每个连接服务器对外流量少了707bytes：
 
-![](/assets/tcpdump-rsa.png)
+![](../.gitbook/assets/tcpdump-rsa.png)
 
-![](/assets/tcpdump-ecc.png)
+![](../.gitbook/assets/tcpdump-ecc.png)
 
-#### 确保兼容性
+### 确保兼容性
 
 当然，有个最大的问题就是**服务端需要兼容ECC和RSA两种证书**，万一客户端不支持ECC证书，也需要回落到RSA，避免拒绝客户的连接请求。还好，目前nginx配置可以兼容两种证书，而且可以优先使用ECC：
 
@@ -230,29 +216,23 @@ ECC和RSA证书访问，使用tcpdump抓包对比，可以看到使用ECC证书�
 >
 > ssl\_session\_timeout 60m;
 
-![](/assets/nginx-ecc-rsa-conf.png)
+![](../.gitbook/assets/nginx-ecc-rsa-conf.png)
 
 查看access日志可以看到客户端请求，使用ECDHE-ECDSA-开头的ssl\_cipher就是使用了ECC证书的了：
 
-![](/assets/ECDHE-ECDSA.png)
+![](../.gitbook/assets/ECDHE-ECDSA.png)
 
 同样，Haproxy也支持配置ECC和RSA双证书的，参考：[https://cbonte.github.io/haproxy-dconv/1.7/configuration.html\#5.1-crt](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#5.1-crt)
 
----
-
-### 第三阶段：上报业务从HTTP/HTTPS修改为TCP协议 {#sdkreport-part3}
+## 第三阶段：上报业务从HTTP/HTTPS修改为TCP协议 <a id="sdkreport-part3"></a>
 
 自己实现加解密，彻底避免SSL证书和HTTPS协议交互负担
 
----
-
-### 项目总结 {#sdkreport-lookback}
+## 项目总结 <a id="sdkreport-lookback"></a>
 
 * 把公司的钱当成自己的钱，就会想方设法去降低成本。
 * 有清晰的思路指导之后，问题就能顺利解决。
 * 对使用的技术和工具要多熟悉，比如nginx、SSL等，优化是建立在熟悉的基础上的，所谓熟能生巧。
 * 熟悉业务特征是优化的必要前提，才能有的放矢。
 * 第一阶段花了三个星期，不能说白做了，但如果能直接想到第二阶段，那么效率更高；行动之前可以思考得更深入和全面一些，有助于整体的工作提高效率。
-
-
 

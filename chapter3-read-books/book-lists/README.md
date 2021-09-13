@@ -1,7 +1,5 @@
 # 读书清单
 
----
-
 本篇主要记录自己读过的非专业类书籍（包括纸质书和电子书，也包括没读完的），并对该书做一段简短的评论，特别说明该书对我的影响等。
 
 为了叙述方便，我将书籍做了大致的分类，可能不是很严谨，主要为了大致区分类别。
@@ -10,11 +8,9 @@
 
 文中不会过多地涉及书本本身的内容，可以当做一份推荐书单来看。
 
----
-
 ## 中国历史
 
-[《史记》](/chapter3-read-books/history-book-shi-ji.md)
+[《史记》](history-book-shi-ji.md)
 
 《资治通鉴》
 
@@ -46,11 +42,11 @@
 
 《老子今注今译》
 
-[《庄子今注今译》](/chapter3-read-books/zhuang-zi-jin-zhu-jin-yi.md)
+[《庄子今注今译》](zhuang-zi-jin-zhu-jin-yi.md)
 
 《楚辞》
 
-[《楚辞补注》](/chapter3-read-books/li-sao.md)
+[《楚辞补注》](li-sao.md)
 
 《诗经》
 
@@ -118,7 +114,7 @@
 
 《尼采：在世纪的转折点上》
 
-[《直面内心的恐惧》](/chapter3-read-books/zhi-mian-nei-xin-de-kong-ju.md)
+[《直面内心的恐惧》](zhi-mian-nei-xin-de-kong-ju.md)
 
 ## 经济和政治
 
@@ -130,7 +126,7 @@
 
 ## 管理和思考
 
-[《褚时健 影响企业家的企业家》](/chapter3-read-books/chu-shi-jian--ying-xiang-qi-ye-jia-de-qi-ye-jia.md)
+[《褚时健 影响企业家的企业家》](chu-shi-jian--ying-xiang-qi-ye-jia-de-qi-ye-jia.md)
 
 《赢》
 
@@ -140,7 +136,7 @@
 
 《原则》
 
-[《高效能人士的七个习惯》](/chapter3-read-books/seven-habits.md)
+[《高效能人士的七个习惯》](seven-habits.md)
 
 《高效能人士的第八个习惯》
 

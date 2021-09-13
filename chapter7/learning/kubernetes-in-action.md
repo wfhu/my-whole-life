@@ -1,6 +1,4 @@
-## 【阅读笔记】Kubernetes in Action
-
----
+# 【阅读笔记】Kubernetes in Action
 
 出版时间：2018年
 
@@ -17,8 +15,6 @@
 tag：阅读笔记，重点内容摘录，kubernetes
 
 主要收获：对k8s有了一个比较完整的了解，知道了重要特性及使用的最佳实践，能做到选择最佳的方案来使用k8s，方便与需要上k8s的业务相结合。
-
----
 
 重要前提：
 
@@ -49,15 +45,13 @@ tag：阅读笔记，重点内容摘录，kubernetes
 * 第十七章：开发APP的最佳实践 --P477/509
 * 第十八章：扩展Kubernetes --P508/540
 
----
-
-### 重要前提： {#k8s-qt}
+## 重要前提： <a id="k8s-qt"></a>
 
 本书主要内容描述Kubernetes 1.9.0版本
 
-### 第一部分：Overview --P1/33 {#k8s-part1}
+## 第一部分：Overview --P1/33 <a id="k8s-part1"></a>
 
-#### 第一章：k8s介绍 -P1/33
+### 第一章：k8s介绍 -P1/33
 
 Linux Namespace实现资源的隔离
 
@@ -65,15 +59,15 @@ Linux control groups（cgroups）实现资源限制 --P11/43
 
 如果app依赖某个内核功能（或者模块），则app不一定能任意在Docker上运行；如果app是针对ARM硬件架构的，不一定能在x86架构的Docker上运行。但是这些情况，通过VM都可以解决。 --P15/47
 
-#### 第二章：Docker和K8S相关的入门步骤 --P25/57
+### 第二章：Docker和K8S相关的入门步骤 --P25/57
 
 所有的image都是由名字：tag组成的，如果不指定tag，则默认是latest这个tag --28/60
 
 k8s一个很基础的原则：只要告诉k8s你想要什么，不需要告诉k8s具体要做什么（declarative） --P49/81
 
-### 第二部分：核心组件 --P55/87po {#k8s-part2}
+## 第二部分：核心组件 --P55/87po <a id="k8s-part2"></a>
 
-#### 第三章：Pod --P55/87
+### 第三章：Pod --P55/87
 
 一个Pod永远在一个node上，不可能跨越两个node
 
@@ -138,7 +132,7 @@ $ kubectl delete all --all
 
 注意：Secrets这种资源就不会被删除，需要明确指定才能删除。
 
-#### 第四章：复制集及其他控制器：管理Pod --P84/116
+### 第四章：复制集及其他控制器：管理Pod --P84/116
 
 liveness probes（判断pod是否healthy）：不依赖app进程本身是否存活或者信号，而是从外部、功能上进行判断；用来检测和判断Pod里面的container到底是不是正常的（健康的），以此来决策是否需要重启（对容器发送SIGKILL 9信号，强制杀死进程）容器之类的（Pod本身不会被重启）
 
@@ -202,7 +196,7 @@ parallelism：Job中多个Pod最大并发运行数量（默认是1，就是串�
 
 CronJob：类似linux/unix的定时任务，会根据时间策略创建Job来执行任务
 
-#### 第五章：服务，让client发现并连接Pod --P 120/152
+### 第五章：服务，让client发现并连接Pod --P 120/152
 
 * Pod是短暂的，可能被删除和创建
 * Pod的IP不是提前预知的，也不知道分配到那个node上
@@ -276,7 +270,7 @@ headless service --P154/186
 
 kubectl run来启动Pod，会产生一个RC（RS）来管理Pod，加上-generator=run-pod/v1参数就直接创建Pod了，跳过RC（RS）
 
-#### 第六章：挂载存储到容器 --P159/191
+### 第六章：挂载存储到容器 --P159/191
 
 emptyDir可以设置为Memory medium，这样就存储在内存里面了 --P166/198
 
@@ -314,7 +308,7 @@ StorageClass：动态地创建PV，避免上面那样需要集群管理员手动
 
 可以设定一个default（默认的）StorageClass
 
-#### 第七章：ConfigMaps和Secrets，配置应用 --P191/223
+### 第七章：ConfigMaps和Secrets，配置应用 --P191/223
 
 配置应用的方式：
 
@@ -373,7 +367,7 @@ Secret类型：
 
 把Secret添加到ServiceAccount，可以避免每个Pod都需要指定imagePullSecrets的麻烦 --P223/255
 
-#### 第八章：从应用中访问Pod的metadata和其他资源 --225/257
+### 第八章：从应用中访问Pod的metadata和其他资源 --225/257
 
 Downward API，通过环境变量或者downward API volume，把Pod及环境相关的信息暴露给应用，比如pod的IP、Pod的主机名、host的主机名、Pod的label和annotation等。 230
 
@@ -389,7 +383,7 @@ Pod的label以及annotation只能通过volume的形式挂载进container（原�
 * 如何确保访问的真的是我们的API？\(cacert证书\)
 * 如何与API服务进行认证/授权（token）
 
-#### 第九章：deployment：陈述式地更新应用 --P250/282
+### 第九章：deployment：陈述式地更新应用 --P250/282
 
 imagePullPolicy的默认策略依赖镜像的tag的：如果tag是latest（明确指示或者完全不加tag的情况下），则默认策略是Always；如果tag是某个值（比如v1），则默认策略是IfNotPresent。 --P256/288
 
@@ -415,7 +409,7 @@ maxUnavailable：允许低于desired数量的Pod最大值，可以是0
 
 readiness probe+minReadySeconds：相当于是双保险，readiness probe如果在minReadySeconds之前报错，那么整个rollout是不会进行下去的（被blocked）。minReadySeconds：确保container的readiness probe成功后，保持一段时间都是成功的，才继续整个rolling update。 --P274/306
 
-#### 第十章：StatefulSets：部署多副本、有状态的应用 --P280/312
+### 第十章：StatefulSets：部署多副本、有状态的应用 --P280/312
 
 ReplicaSets下创建的Pod都是一样的，所以挂载的目录也是同一个volume，共享volume数据。
 
@@ -441,9 +435,9 @@ StatefulSets能够被访问到，需要一个Headless service作为GOVERNING Ser
 
 StatefulSet的副本所在的node如果出行问题了，k8s不会自动替换，因为（most-one）需求，必须要管理员手动告诉k8s（比如删除Pod，或者删除Node），才会替换有故障的副本
 
-### 第三部分：基础之外的内容 --P309/341 {#k8s-part3}
+## 第三部分：基础之外的内容 --P309/341 <a id="k8s-part3"></a>
 
-#### 第十一章：理解k8s内部 -P309/341
+### 第十一章：理解k8s内部 -P309/341
 
 管理控制台组件：
 
@@ -529,7 +523,7 @@ Service的ClusterIP是一个虚拟IP（没有和任何主机、veth绑定，也�
 
 API Server前面用一个LB来做负载均衡或者高可用，都是可以的，因为它整体上是无状态的；但是Scheduler和Controller Manager一次只能有一个在active，所以他们内部默认实现了--leader-elect来选举leader，只有leader才会干活，其他默认是standby状态（选举过程是通过写一个kube-scheduler的EndPoint资源实现的，期间通过乐观锁来确保只有一个写入成功）。 --P343/375
 
-#### 第十二章：让k8s的API server变得安全 --P346/378
+### 第十二章：让k8s的API server变得安全 --P346/378
 
 每一个Pod都会有一个ServiceAccount，如果没有指定就使用default；SA的token使用的是JSON Web Tokens。
 
@@ -543,7 +537,7 @@ RoleBinding虽然也是某一个namespace相关的，但是它可以关联到另
 
 API server重启的时候，默认的ClusterRoles和ClusterRoleBindings会被重新创建
 
-#### 第十三章：让k8s集群的node及网络变得安全 --P375/407
+### 第十三章：让k8s集群的node及网络变得安全 --P375/407
 
 hostNetwork = true，这样Pod就使用Node的网卡namespace了，而不是自己的虚拟网络namespace；k8s的control组件，通过Pod模式部署，就是走的这种模式。
 
@@ -580,7 +574,7 @@ kubectl config set-credentials &lt;name&gt;
 
 NetworkPolicy：（通过PodSelector或者ipBlock等）管理Pod的入（ingress）及出（egress）的访问权限控制（需要CNI plugin之类的网络插件支持，否则不会有效果）。 --P399/431
 
-#### 第十四章：管理Pod的计算资源 --P404/436
+### 第十四章：管理Pod的计算资源 --P404/436
 
 requests（最低资源需求）和limits（最高使用资源限制）都是container级别的限制，不是Pod级别的。
 
@@ -627,13 +621,11 @@ Pod里的container完全没有设置requests和limits的，自动分配BestEffor
 
 LimitRange只限制单个Pod的资源，不限制namespace下所有的Pod的资源；要限制namespace下所有的资源，需要使用ResourceQuota资源来处理。
 
----
-
 如果某种资源设置了ResourceQuota，那么创建Pod的时候必须要有requests及limits，否定会被拒绝。
 
 cAdvisor是和Kubelet集成在一起的；Heapster则需要单独安装的addon组件；都只能保存很短一段时间；需要InfluxDB来长期保存数据。
 
-#### 第十五章：自动扩展Pod和集群的Node --P437/469
+### 第十五章：自动扩展Pod和集群的Node --P437/469
 
 HorizontalPodAutoscaler \(HPA\)依赖Heapster和cAdvisor采集和汇聚的数据，才能正常执行功能。
 
@@ -655,7 +647,7 @@ Cluster Autoscaler：在Node资源不足时，创建新的云主机来满足Pod�
 
 PodDisruptionBudget \(PDB\)：确保在Cluster scale down的过程中，某些Pod至少存在相应的个数（避免业务收到太大的影响，以及有最小Pod数量要求的应用受到影响） --455/487
 
-#### 第十六章：高级调度 --457/489
+### 第十六章：高级调度 --457/489
 
 node's taint + Pod's toleration
 
@@ -673,8 +665,6 @@ Node Selector是要被淘汰的了，以后都是用Node affinity来实现相关
 
 自己定义的Node affinity只是一方面，k8s的Scheduler也有其他的优先级函数（比如SelectorSpreadPriority，用来防止同一个RS下的Pod都调度到一个Node上）
 
----
-
 Pod Affinity：解决Pod和Pod之间尽量靠近部署的问题
 
 通过Topology key来决定Pod Affinity的行为（hostname、rack、region等，可自行定义，只要有这个label即可，比如rack/region/zone/hostname等；比如rack=rack1;rack=rack2，然后设置toplogyKey为rack） --P469/501
@@ -683,7 +673,7 @@ Pod Affinity一旦定义了，不但自己会靠近目标Pod；如果目标Pod�
 
 有Pod Affinity，也有podAntiAffinity，让自己远离目标Pod来部署。
 
-#### 第十七章：开发APP的最佳实践 --P477/509
+### 第十七章：开发APP的最佳实践 --P477/509
 
 app需要准备好随时被kill以及被调度到其他的节点上
 
@@ -721,7 +711,7 @@ ksonnet：一个帮助生成k8s的yaml/json的配置文件，方便管理的工�
 
 --506/538
 
-#### 第十八章：扩展Kubernetes --P508/540
+### 第十八章：扩展Kubernetes --P508/540
 
 CustomResourceDefinition object \(CRD\)：可以定义更高级的Resource，方便使用，比如定义一个Queue的Resource，就不需要考虑Secrets/Deployment/Services之类的定义了，相当于现有Resource的整合。
 
@@ -730,8 +720,6 @@ CustomResourceDefinition object \(CRD\)：可以定义更高级的Resource，方
 Service Catalog：类似为某一类对外提供的服务而定义的自助创建的模板，方便把k8s集群的能力对外输出。
 
 OpenShift，Deis Workflow：基于kubernetes的工具
-
----
 
 核心篇章完整阅读完毕：2019年8月18日
 
