@@ -7,7 +7,7 @@
 * [使用Grafana/Graphite优化Smokeping网络监控](https://wfhu.github.io/grafana/graphite/smokeping/2017/09/03/smokeping.html)
 * [使用全套开源工具搭建生成环境可用的Docker Swarm mode集群](https://wfhu.github.io/docker/2017/09/02/Docker-Swarm-mode.html)
 
-还在medium上写过文章，如： [**首次线上业务从传统架构迁移到AWS**](https://medium.com/@everesthu2011/%E9%A6%96%E6%AC%A1%E7%BA%BF%E4%B8%8A%E4%B8%9A%E5%8A%A1%E4%BB%8E%E4%BC%A0%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%BF%81%E7%A7%BB%E5%88%B0aws%E5%AE%8C%E6%AF%95-%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%85%B3%E4%BA%8E%E6%AD%A4%E6%AC%A1%E8%BF%81%E7%A7%BB%E7%9A%84%E6%80%BB%E7%BB%93-59ef4271b8ab)
+还在medium上写过文章。
 
 主要是觉得编辑环境不方便维护，没有所见即所得的编辑工具，也不便于分类整理，所以现在打算今后的技术内容都搬到gitbook上来了，统一在gitbook上做记录，同时可以和github保持同步，不担心数据丢失问题。
 
@@ -21,7 +21,5 @@
 
 今后所有新发布的书籍和文章，都会链接到此处，作为内容中心点，方便维护。
 
-这一部分的内容，放在整本书里面显得有点突兀，本想挪出去单独记录的，不过既然工作也是属于生活的重要部分，已经写在这里了，就先维持现状吧。
-
-不追求完美，完美让人痛苦。
+这一部分的内容，放在整本书里面显得有点突兀，本想挪出去单独记录的，不过既然工作也是属于生活的重要部分，已经写在这里了，就先维持现状吧。不追求完美，完美让人痛苦。
 
