@@ -26,6 +26,7 @@
     * [《庄子今注今译》](chapter3-read-books/book-lists/zhuang-zi-jin-zhu-jin-yi.md)
     * [《项目计划、进度与控制》](chapter3-read-books/book-lists/xiang-mu-ji-hua-jin-du-yu-kong-zhi.md)
     * [《尼采：在世纪的转折点上》](chapter3-read-books/book-lists/ni-cai-zai-shi-ji-de-zhuan-zhe-dian-shang.md)
+    * [《别让猴子跳回背上》](chapter3-read-books/book-lists/bie-rang-hou-zi-tiao-hui-bei-shang.md)
     * [《离骚》](chapter3-read-books/book-lists/li-sao.md)
     * [《直面内心的恐惧》](chapter3-read-books/book-lists/zhi-mian-nei-xin-de-kong-ju.md)
     * [《高效能人士的七个习惯》](chapter3-read-books/book-lists/seven-habits.md)
