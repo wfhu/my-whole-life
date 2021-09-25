@@ -10,7 +10,7 @@
   * [5、大学时期（2004-2008）](chapter1/university.md)
   * [6、参加工作-广州（2008-2011）](chapter1/work-at-guangzhou.md)
   * [7、参加工作-深圳（2011-）](chapter1/work-at-shenzhen.md)
-  * [【列表】生活琐碎日志](chapter1/fragments-of-life.md)
+  * [∞【列表】生活琐碎日志](chapter1/fragments-of-life.md)
 * [第二：通鉴-工作篇](chapter2/README.md)
   * [1、广州-网易-TJR（2008.7-2011.9）](chapter2/work-at-guangzhou-netease.md)
   * [2、深圳-腾讯-ZYB（2011.9-2011.12）](chapter2/work-at-shenzhen-tencent.md)
