@@ -1,6 +1,6 @@
 # 【阅读笔记】网络之TCP拥塞控制算法BBR
 
-**原文链接**：[https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/](https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/)
+### **原文链接一**：[https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/](https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/)
 
 **标题**：BBR, the new kid on the TCP block
 
@@ -47,7 +47,7 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 * CUBIC是BIC的一种改进，它使用三阶多项式函数（third-order polynomial function）来管理流数据大小。
 * CUBIC对out-of-order的ACK反馈，回撤程度比Reno小，而且能更快地恢复到原来的flow rate
 
-**原文链接**：[https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/](https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/)
+### **原文链接二**：[https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/](https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/)
 
 **标题**：BBR: Congestion-based congestion control
 
@@ -65,9 +65,9 @@ BBR降低了网络的RTT，全球平均降低53%，在发展中国家降低80%�
 
 对TCP的性能来讲，重要的几个概念：
 
-* round-trip propagation time \(RTprop\)（在没有queue的情况下的RTT）
-* bottleneck bandwidth, BtlBw \(the bandwidth at the slowest link in each direction\)
-* Bandwidth Delay Product \(BDP\) \_is the maximum possible amount of data in transit in a network, and is obtained by multiplying the bottleneck bandwidth and round-trip propagation time.
+* round-trip propagation time (RTprop)（在没有queue的情况下的RTT）
+* bottleneck bandwidth, BtlBw (the bandwidth at the slowest link in each direction)
+* Bandwidth Delay Product (BDP) \_is the maximum possible amount of data in transit in a network, and is obtained by multiplying the bottleneck bandwidth and round-trip propagation time.
 
 网络的最佳运行点（optimal operating point）在于：刚好在BDP的阈值；而loss-based congestion control算法则运行在BDP+bottleneck buffer
 
@@ -75,9 +75,9 @@ BBR追踪两个基本的数据：bottleneck bandwidth and round-trip propagation
 
 BBR每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
 
-BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（延迟本身主要是因为手机-SGSN \(serving GPRS support node\)直接的buffer导致，150KB-10MB）。
+BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（延迟本身主要是因为手机-SGSN (serving GPRS support node)直接的buffer导致，150KB-10MB）。
 
-**原文链接**：[https://queue.acm.org/detail.cfm?id=3022184](https://queue.acm.org/detail.cfm?id=3022184)
+### **原文链接三**：[https://queue.acm.org/detail.cfm?id=3022184](https://queue.acm.org/detail.cfm?id=3022184)
 
 **标题**：BBR: Congestion-Based Congestion Control
 
@@ -91,7 +91,7 @@ BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（�
 
 目前loss-based congestion control算法（例如CUBIC），在buffer很大的情况下，会引发[bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat)问题（delay比较大，delay的jitter也比较大）；在buffer很小的情况下，会误把丢包当做congestion，导致较低的吞吐量。
 
-TCP传输三大限制常量：RTprop（管子的长度），BltBw\(bottleneck bandwidth\)（管子中间的最小直径），bottleneck buffer。
+TCP传输三大限制常量：RTprop（管子的长度），BltBw(bottleneck bandwidth)（管子中间的最小直径），bottleneck buffer。
 
 因以上三个限制，引发传输的三个阶段：app-limited（应用不够快），bandwidth-limited（处理不过来了，但是buffer还有空间），buffer-limited（不但处理不过来，而且buffer也被占满了）。
 
@@ -103,7 +103,7 @@ TCP传输三大限制常量：RTprop（管子的长度），BltBw\(bottleneck ba
 
 由于对buffer的使用情况不一样，短的连接和请求（比如request/response的类型连接）适合探测真实的RTprop，但是却无法获知BtlBw；大数据量、持续时间较长的连接适合探测BtlBw，但是却无法获知真实的RTprop（除了开始几个RTT数据之外）。
 
-pacing\_gain是BBR的最重要的调节参数；会以BtlBw x pacing\_gain的速率来发送。
+pacing_gain是BBR的最重要的调节参数；会以BtlBw x pacing_gain的速率来发送。
 
 BBR分为四个阶段：STARTUP，DRAIN，ProbeBW，ProbeRTT；大部分的时间会花在ProbeBW阶段；
 
@@ -111,9 +111,9 @@ BBR分为四个阶段：STARTUP，DRAIN，ProbeBW，ProbeRTT；大部分的时�
 
 * 这里和CUBIC的slow-start的核心区别在于：slow-start是基于丢包才停止的，而BBR是基于对带宽增长的停滞而退出这个阶段。详细可参考这个[PDF文档](https://www.ietf.org/proceedings/97/slides/slides-97-iccrg-bbr-congestion-control-02.pdf)的33页。
 
-2、DRAIN：主要是释放掉在STARTUP阶段造成的queue，以降低后续的延迟；它的pacing\_gain是STARTUP时期的倒数。
+2、DRAIN：主要是释放掉在STARTUP阶段造成的queue，以降低后续的延迟；它的pacing_gain是STARTUP时期的倒数。
 
-3、ProbeBW：每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（所谓的pacing\_gain，即倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
+3、ProbeBW：每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandwidth的1.25，0.75，1，1，1，1，1（所谓的pacing_gain，即倍数），主要是用来探测是否有更高的传输速率的可能性（比如线路情况变化了）。
 
 4、ProbeRTT：每隔几秒会进入一次ProbeRTT阶段，它在至少一个RTT时间长度期间，把inflight包降低到4个，然后恢复来的状态；这一阶段主要是释放出queue，让其他的flow能探测到真实的RTprop数值，而当其他flow发现新的RTprop值时，也会触发进入ProbeRTT阶段。目的主要是保证公平和稳定。
 
@@ -132,9 +132,9 @@ BBR存在的问题及改进方法：参考 [https://datatracker.ietf.org/meeting
 
 其他参考链接：
 
-[ _Making Linux TCP Fast_](https://pdfs.semanticscholar.org/3013/e17706df21957f53579f53fc67967f3bb548.pdf) 文章介绍了BBR、TSO、Pacing等发送端的优化方案。
+[_ Making Linux TCP Fast_](https://pdfs.semanticscholar.org/3013/e17706df21957f53579f53fc67967f3bb548.pdf) 文章介绍了BBR、TSO、Pacing等发送端的优化方案。
 
-**验证真实效果**
+### **验证真实效果**
 
 BBR对比CUBIC实际效果，速度上去了5倍，有质的改变：
 
@@ -146,18 +146,17 @@ BBR对比CUBIC实际效果，速度上去了5倍，有质的改变：
 
 区域：新加坡；
 
-```text
+```
 uname -a
 Linux ip-xxx.ap-southeast-1.compute.internal 4.14.123-111.109.amzn2.x86_64 #1 SMP Mon Jun 10 19:37:57 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
 默认是cubic，使用以下命令修改为bbr，断开并重新连接：
 
-```text
+```
 modprobe tcp_bbr
 modprobe sch_fq
 sysctl -w net.ipv4.tcp_congestion_control=bbr
 ```
 
 ![](../../.gitbook/assets/BBR-CUBIC-youtube.png)![](../../.gitbook/assets/BBR-BBR-youtube.png)
-
