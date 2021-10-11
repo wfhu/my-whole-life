@@ -34,6 +34,8 @@
     * [《史记》](chapter3-read-books/book-lists/history-book-shi-ji.md)
     * [《按自己的意愿过一生》](chapter3-read-books/book-lists/book-shape-your-life.md)
   * [电影与电视剧](chapter3-read-books/tv-drama-and-film.md)
+  * [网络视频](chapter3-read-books/wang-luo-shi-pin/README.md)
+    * [How To Speak by Patrick Winston](chapter3-read-books/wang-luo-shi-pin/how-to-speak-by-patrick-winston.md)
 * [第四：梦幻和狂想](chapter4-dreams/README.md)
   * [二十四小时的情侣](chapter4-dreams/lover-of-24-hours.md)
   * [街头的哭泣](chapter4-dreams/cry-in-the-street.md)
@@ -67,4 +69,3 @@
   * [梦境](chapter8/my-dreams.md)
 * [第九：社会新闻与时事评论](chapter9.md)
 * [附一：本书日志](book-log.md)
-
