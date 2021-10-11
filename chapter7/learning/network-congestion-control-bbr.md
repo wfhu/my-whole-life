@@ -1,6 +1,8 @@
 # 【阅读笔记】网络之TCP拥塞控制算法BBR
 
-### **原文链接一**：[https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/](https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/)
+### **原文链接一**
+
+地址：[https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/](https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/)
 
 **标题**：BBR, the new kid on the TCP block
 
@@ -20,7 +22,7 @@ Reno和CUBIC实际上是一类（AIMD）：他们最大的特点（或者说是�
 
 Vegas和BBR是另外一种尝试，它们努力让传输线路一直维持在**即将开始排队但是还没排队的状态**。它们重点依赖对RTT的计算，而不像Reno和CUBIC主要依赖对ack包的追踪。
 
-BBR有一个最大的特点，就是不直接把丢包当成是拥塞。在5%以下的丢包，BBR几乎不错出反应；在5%-20%只做很小的反应；只有在丢包达到20%以上时，BBR才会吧传输速度降下来。
+BBR有一个最大的特点，就是不直接把丢包当成是拥塞。在5%以下的丢包，BBR几乎不错出反应；在5%-20%只做很小的反应；只有在丢包达到20%以上时，BBR才会把传输速度降下来。
 
 Vegas传输速度也是线性恢复的，这一点和Reno类似。另外一个问题在于，Vegas在开始排队时就开始回撤，如果同一个线路上有类似Reno的session也在跑，因为Reno需要等到丢包了才会回撤，所以整个线路都会被Reno挤占掉。
 
@@ -47,7 +49,9 @@ BBR与Reno和CUBIC共处，从报告上来讲，容易挤占CUBIC的空间。具
 * CUBIC是BIC的一种改进，它使用三阶多项式函数（third-order polynomial function）来管理流数据大小。
 * CUBIC对out-of-order的ACK反馈，回撤程度比Reno小，而且能更快地恢复到原来的flow rate
 
-### **原文链接二**：[https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/](https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/)
+### **原文链接二**
+
+**地址**：[https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/](https://blog.acolyer.org/2017/03/31/bbr-congestion-based-congestion-control/)
 
 **标题**：BBR: Congestion-based congestion control
 
@@ -77,7 +81,9 @@ BBR每8个RTT周期，会控制传输速度为当前已探测的bottleneck bandw
 
 BBR相对CUBIC，对于2G、3G等网络降低用户的延迟非常有帮助（延迟本身主要是因为手机-SGSN (serving GPRS support node)直接的buffer导致，150KB-10MB）。
 
-### **原文链接三**：[https://queue.acm.org/detail.cfm?id=3022184](https://queue.acm.org/detail.cfm?id=3022184)
+### **原文链接三**
+
+**地址**：[https://queue.acm.org/detail.cfm?id=3022184](https://queue.acm.org/detail.cfm?id=3022184)
 
 **标题**：BBR: Congestion-Based Congestion Control
 
@@ -159,4 +165,6 @@ modprobe sch_fq
 sysctl -w net.ipv4.tcp_congestion_control=bbr
 ```
 
-![](../../.gitbook/assets/BBR-CUBIC-youtube.png)![](../../.gitbook/assets/BBR-BBR-youtube.png)
+![youtube with TCP-CUBIC](../../.gitbook/assets/BBR-CUBIC-youtube.png)
+
+![youtube with TCP-BBR](../../.gitbook/assets/BBR-BBR-youtube.png)
