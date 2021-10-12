@@ -23,6 +23,7 @@ SAMPLES
 
 * 需要不断地重复和听众讲，最好是讲三次
 * building fence：设置自己的特点，让听众记住自己和自己的演讲
+* verbal punctuation：需要建立一些landmark，需要有一些提纲，方便中间回顾
 
 
 
