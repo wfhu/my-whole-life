@@ -38,6 +38,34 @@ quality of communication/speaking is determined by How much Knowledge > Practice
 
 人数要刚好合理：太少或者太多都不会太合适
 
+### 合理使用小道具（props）
+
+使用物理小道具，具有特别的empathetic mirror（移情作用，同感），让听众更能真切感受到你的想法
+
+expose idea, not teach idea
+
+### PPT的常见问题
+
+* 太多的文字内容（阅读annoy people）
+* 不要有logon之类
+* TITLE可以不要（演讲者告诉听众title）
+* 字体要选择大一点的
+* 不要用镭射枪（会导致演讲者背对着听众），建议直接用大箭头在PPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
