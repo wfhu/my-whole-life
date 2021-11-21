@@ -52,7 +52,42 @@ expose idea, not teach idea
 * 字体要选择大一点的
 * 不要用镭射枪（会导致演讲者背对着听众），建议直接用大箭头在PPT
 
+### inspire people
 
+告诉他们他们可以做到
+
+给他们提供看问题新的视角
+
+当给人展示有激情
+
+
+
+How To Think
+
+
+
+### Job Talk
+
+* Vision(Problem and Approach)
+* Done SomeThing(STEP)
+* Contribution
+
+How to Get Yourself remembered(get famous)：
+
+* SYMBOL
+* SLOGAN
+* SURPRISE
+* SALIENT Idea
+* TELL the Story
+
+
+
+FINAL SLIDE
+
+Final Words
+
+* JOKE
+* salute to you audiace（像你的听众致敬）
 
 
 
