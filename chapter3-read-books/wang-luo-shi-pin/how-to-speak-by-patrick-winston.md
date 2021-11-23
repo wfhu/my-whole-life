@@ -10,9 +10,9 @@ View the complete course: https://ocw.mit.edu/how\_to\_speak
 
 ### 重要观点摘录
 
-时间：2021年10月
+时间：2021年10月&2021年11月，第一次完整观看
 
-quality of communication/speaking is determined by How much Knowledge > Practice > Talent you have
+quality of communication/speaking is determined by How much Knowledge > Practice > Talent you have；知识的影响 大于 训练，训练 大于 天赋
 
 人类只有一个语言处理中心，如果你边听课边浏览网页或者查看电子邮件，实际上你已经分心了，更糟糕的是这会让你周围的人也跟着分心。
 
