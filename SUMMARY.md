@@ -38,6 +38,7 @@
     * [How To Speak by Patrick Winston](chapter3-read-books/wang-luo-shi-pin/how-to-speak-by-patrick-winston.md)
     * [Randy Pausch Last Lecture: Achieving Your Childhood Dreams](chapter3-read-books/wang-luo-shi-pin/randy-pausch-last-lecture-achieving-your-childhood-dreams.md)
 * [第四：梦幻和狂想](chapter4-dreams/README.md)
+  * [家乡的团聚](chapter4-dreams/jia-xiang-de-tuan-ju.md)
   * [忽略的20年与难忘的3天](chapter4-dreams/hu-lve-de-20-nian-yu-nan-wang-de-3-tian.md)
   * [二十四小时的情侣](chapter4-dreams/lover-of-24-hours.md)
   * [街头的哭泣](chapter4-dreams/cry-in-the-street.md)
