@@ -44,3 +44,16 @@ CREATE TABLE `t_my_table` (
 
 ## 进一步验证
 
+基于以上分析，如果我只是把phone字段的类别从varchar(15)修改到varchar(63)，因63 \* 4 = 254，所占用空间小于255个字节，理论上不需要动已有的数据，所以应该很快结束。
+
+SQL如下：
+
+```sql
+ALTER TABLE my_database.t_my_table MODIFY phone varchar(63),ALGORITHM=INPLACE, LOCK=NONE;
+```
+
+运行截图如下，显示仅用了10ms就完成了表结构的修改：
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>alter column length to 63</p></figcaption></figure>
+
+可以看到，与我们预想的一致：不需要修改已有数据的情况下，速度非常快。
