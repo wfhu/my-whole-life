@@ -58,6 +58,7 @@
   * [【优化】nginx启用reuseport](chapter7/nginx-enable-reuseport.md)
   * [【优化】博雅-大数据机器高故障率分析和优化](chapter7/by-bigdata-machine-optimization.md)
   * [【优化】sdk上报业务优化](chapter7/hxhg-sdkreport-optimization.md)
+  * [【原理】MySQL增加varchar类型字段的长度之性能问题分析](chapter7/yuan-li-mysql-zeng-jia-varchar-lei-xing-zi-duan-de-chang-du-zhi-xing-neng-wen-ti-fen-xi.md)
   * [专业学习相关](chapter7/learning/README.md)
     * [数学相关](chapter7/learning/shu-xue-xiang-guan/README.md)
       * [successive over relaxation method（SOR）学习一例](chapter7/learning/shu-xue-xiang-guan/successive-over-relaxation-methodsor-xue-xi-yi-li.md)
