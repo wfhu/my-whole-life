@@ -57,3 +57,11 @@ ALTER TABLE my_database.t_my_table MODIFY phone varchar(63),ALGORITHM=INPLACE, L
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>alter column length to 63</p></figcaption></figure>
 
 可以看到，与我们预想的一致：不需要修改已有数据的情况下，速度非常快。
+
+## 反思
+
+第一：对于varchar的存储方式其实存在一知半解的情况，对细节的把握不是很清晰。
+
+第二：对于varchar和字符集（CHARSET）的关系没有理解到位，一开始存在认为varchar(64)就是只占64个字节的错误。
+
+第三：对于online DDL和修改表结构时间长短这二者的关系，存在概念上的混淆；实际上online DDL只是表明不会阻塞其他的读/写操作，并不代表online DDL就可以很快速的完成。
