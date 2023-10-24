@@ -14,7 +14,7 @@
 ALTER TABLE my_database.t_my_table MODIFY phone varchar(64),ALGORITHM=INPLACE, LOCK=NONE;
 ```
 
-旧表的表结构如下：
+旧表的表结构如下（经过脱敏简化处理）：
 
 ```sql
 CREATE TABLE `t_my_table` (
@@ -42,6 +42,10 @@ CREATE TABLE `t_my_table` (
 
 > To calculate the number of bytes used to store a particular [`CHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html), [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html), or [`TEXT`](https://dev.mysql.com/doc/refman/5.7/en/blob.html) column value, you must take into account the character set used for that column and whether the value contains multibyte characters. In particular, when using a `utf8` Unicode character set, you must keep in mind that not all characters use the same number of bytes. `utf8mb3` and `utf8mb4` character sets can require up to three and four bytes per character, respectively. For a breakdown of the storage used for different categories of `utf8mb3` or `utf8mb4` characters, see [Section 10.9, “Unicode Support”](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode.html).
 
+参考链接三：[https://dev.mysql.com/doc/refman/5.7/en/innodb-online-ddl-operations.html](https://dev.mysql.com/doc/refman/5.7/en/innodb-online-ddl-operations.html)
+
+> The number of length bytes required by a [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html) column must remain the same. For [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html) columns of 0 to 255 bytes in size, one length byte is required to encode the value. For [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html) columns of 256 bytes in size or more, two length bytes are required. As a result, in-place [`ALTER TABLE`](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) only supports increasing [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html) column size from 0 to 255 bytes, or from 256 bytes to a greater size. In-place [`ALTER TABLE`](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) does not support increasing the size of a [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html) column from less than 256 bytes to a size equal to or greater than 256 bytes. In this case, the number of required length bytes changes from 1 to 2, which is only supported by a table copy (`ALGORITHM=COPY`).
+
 ## 进一步验证我们的想法
 
 基于以上分析，如果我只是把phone字段的类别从varchar(15)修改到varchar(63)，因63 \* 4 = 254，所占用空间小于255个字节，理论上不需要动已有的数据，所以应该很快结束。
@@ -60,7 +64,7 @@ ALTER TABLE my_database.t_my_table MODIFY phone varchar(63),ALGORITHM=INPLACE, L
 
 ### 其他验证
 
-如果我们再次将phone字段从varchar(63)修改成varchar(20)，理论上也应该会非常快
+如果我们再次将phone字段从varchar(63)修改成varchar(20)，长度前缀和真实数据都不需要变，理论上也应该会非常快
 
 SQL如下：
 
@@ -68,13 +72,17 @@ SQL如下：
 ALTER TABLE my_database.t_my_table MODIFY phone varchar(20),ALGORITHM=INPLACE, LOCK=NONE;
 ```
 
-运行截图如下，显示以下报错：
+运行截图如下，直接显示以下报错：
 
 ```sql
 【执行SQL：(1)】
 ALTER TABLE my_database.t_my_table MODIFY phone varchar(20),ALGORITHM=INPLACE, LOCK=NONE
 执行失败，失败原因：(conn=547542) ALGORITHM=INPLACE is not supported. Reason: Cannot change column type INPLACE. Try ALGORITHM=COPY.
 ```
+
+原因其实在官方文档中写的很清楚：[https://dev.mysql.com/doc/refman/5.7/en/innodb-online-ddl-operations.html](https://dev.mysql.com/doc/refman/5.7/en/innodb-online-ddl-operations.html)
+
+> Decreasing [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html) size using in-place [`ALTER TABLE`](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) is not supported. Decreasing [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html) size requires a table copy (`ALGORITHM=COPY`).
 
 ## 反思
 
