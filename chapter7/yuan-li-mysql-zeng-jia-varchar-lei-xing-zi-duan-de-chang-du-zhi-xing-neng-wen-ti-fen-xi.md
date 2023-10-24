@@ -6,7 +6,7 @@
 
 数据库版本类型：MySQL 5.7.32
 
-背景：某业务表有超过16亿行数据，某一个字段需要从varchar(15)类型修改成varchar(64)类型，我们查找资料并简单分析，认为理论上不需要修改已有的数据字段，只需要修改表结构即可，只会影响后续新插入的数据。但实际运行时出乎意料，修改表结构花了7个多小时才完成。
+背景：某业务表有超过15.8亿行数据，表大小约400GB，索引大小约111GB，某一个字段需要从varchar(15)类型修改成varchar(64)类型，我们查找资料并简单分析，认为理论上不需要修改已有的数据字段，只需要修改表结构即可，只会影响后续新插入的数据。但实际运行时出乎意料，修改表结构花了7个多小时才完成。
 
 修改表结构的SQL语句如下：
 
@@ -42,7 +42,7 @@ CREATE TABLE `t_my_table` (
 
 > To calculate the number of bytes used to store a particular [`CHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html), [`VARCHAR`](https://dev.mysql.com/doc/refman/5.7/en/char.html), or [`TEXT`](https://dev.mysql.com/doc/refman/5.7/en/blob.html) column value, you must take into account the character set used for that column and whether the value contains multibyte characters. In particular, when using a `utf8` Unicode character set, you must keep in mind that not all characters use the same number of bytes. `utf8mb3` and `utf8mb4` character sets can require up to three and four bytes per character, respectively. For a breakdown of the storage used for different categories of `utf8mb3` or `utf8mb4` characters, see [Section 10.9, “Unicode Support”](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode.html).
 
-## 进一步验证
+## 进一步验证我们的想法
 
 基于以上分析，如果我只是把phone字段的类别从varchar(15)修改到varchar(63)，因63 \* 4 = 254，所占用空间小于255个字节，理论上不需要动已有的数据，所以应该很快结束。
 
@@ -57,6 +57,24 @@ ALTER TABLE my_database.t_my_table MODIFY phone varchar(63),ALGORITHM=INPLACE, L
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>alter column length to 63</p></figcaption></figure>
 
 可以看到，与我们预想的一致：不需要修改已有数据的情况下，速度非常快。
+
+### 其他验证
+
+如果我们再次将phone字段从varchar(63)修改成varchar(20)，理论上也应该会非常快
+
+SQL如下：
+
+```sql
+ALTER TABLE my_database.t_my_table MODIFY phone varchar(20),ALGORITHM=INPLACE, LOCK=NONE;
+```
+
+运行截图如下，显示以下报错：
+
+```sql
+【执行SQL：(1)】
+ALTER TABLE my_database.t_my_table MODIFY phone varchar(20),ALGORITHM=INPLACE, LOCK=NONE
+执行失败，失败原因：(conn=547542) ALGORITHM=INPLACE is not supported. Reason: Cannot change column type INPLACE. Try ALGORITHM=COPY.
+```
 
 ## 反思
 
