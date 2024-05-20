@@ -12,7 +12,7 @@ description: 由近期《美国高等教育史》翻译问题相关新闻而引�
 
 ![截图一](<../.gitbook/assets/image (2).png>)
 
-![截图二](<../.gitbook/assets/image (1).png>)
+![截图二](<../.gitbook/assets/image (1) (1).png>)
 
 ![截图三](<../.gitbook/assets/image (4).png>)
 
@@ -38,7 +38,7 @@ description: 由近期《美国高等教育史》翻译问题相关新闻而引�
 
 大家看清楚了，我说的就是下面这本书，有种毁了一本好教材的感觉：
 
-![封面](../.gitbook/assets/image.png)
+![封面](<../.gitbook/assets/image (1).png>)
 
 ![译者序](<../.gitbook/assets/image (7).png>)
 

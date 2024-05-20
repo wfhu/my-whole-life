@@ -234,11 +234,36 @@ CPU利用率：从峰值的40%下降到峰值的25%左右，下降37%
 
 ![](../.gitbook/assets/es-mapping-result-cpu001.png)
 
+
+
 ## 使用redis-shake对redis集群进行数据拷贝报错
 
 时间：2024年5月
 
-现象：
+现象：团队近期需要对两套redis-cluster进行迁移，一套约100G大小，另一套约200G大小，主实例数量在10-30个之间。用redis-shake工具进行迁移，迁移到中途会报错退出，尝试几次还是一样的情况。
+
+```
+12:11:14 [PANIC] read error, please check source redis log or network
+[error]: EOF
+[stack]: 
+    1   /Users/tongyao.lty/Work/RedisShake/src/redis-shake/common/utils.go:930
+            redis-shake/common.Iocopy
+    0   /Users/tongyao.lty/Work/RedisShake/src/redis-shake/dbSync/syncBegin.go:92
+            redis-shake/dbSync.(*DbSyncer).runIncrementalSync
+        ... ...
+```
+
+搜索得到如下建议：
+
+<figure><img src="../.gitbook/assets/3fe710111800aee9f9017e1f3f3ace83.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/9b4c267be4be85c268f34d07ebcec68d.png" alt=""><figcaption></figcaption></figure>
+
+看FAQ文档：[https://github.com/tair-opensource/RedisShake/wiki/redis%E2%80%90shake-2.x-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98](https://github.com/tair-opensource/RedisShake/wiki/redis%E2%80%90shake-2.x-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+优化：为了避免修改参数引起其他不必要的问题，我们尝试“在业务低峰期再进行同步”，果然就顺利完成了同步了。
 
 
 
