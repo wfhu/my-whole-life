@@ -134,7 +134,7 @@ OpenStack的多个VM，两倍多地超分了CPU资源，即使某一个VM的CPU�
 
 时间：2019年8月
 
-现象：nginx-&gt;backend引起流量波动，CPU负载升高，nginx的statsu状态数据明显异常
+现象：nginx->backend引起流量波动，CPU负载升高，nginx的statsu状态数据明显异常
 
 排查：nginx的错误日志明显上升，发现很多连不上后端，无法建立连接。
 
@@ -160,9 +160,9 @@ ES版本：2.3.5（还没有text和keyword）参考文档：[https://www.elastic
 
 应用新mapping具体时间：2019年12月10日（20191211索引生效）
 
-索引优化具体内容（带 ---&gt; 就是前后的变化）：
+索引优化具体内容（带 ---> 就是前后的变化）：
 
-```text
+```
 {
   "20191206": {
     "mappings": {
@@ -233,4 +233,32 @@ ES版本：2.3.5（还没有text和keyword）参考文档：[https://www.elastic
 CPU利用率：从峰值的40%下降到峰值的25%左右，下降37%
 
 ![](../.gitbook/assets/es-mapping-result-cpu001.png)
+
+## 使用redis-shake对redis集群进行数据拷贝报错
+
+时间：2024年5月
+
+现象：
+
+
+
+## redis因磁盘吞吐性能不足，导致业务访问请求超时
+
+时间：2024年5月
+
+现象：研发侧反馈，6台业务机器，在访问某个redis实例时，偶尔会出现链接超时的现象，一天也就出现那么七八次
+
+排查：经过全面排查，发现redis实例所在的机器，在业务反馈的时间点，吞吐量均有突增的现象；怀疑与磁盘相关，进而怀疑与AOF相关，可能与AOF rewrite相关。为确定，临时把AOF关闭，相关现象确实就彻底消失了，基本确定是磁盘吞吐性能不足导致的。
+
+<figure><img src="../.gitbook/assets/17161768093738248549913_140453523509_B8B1009E-7023-4FDF-B7BC-EDF3EB64EA8A.png" alt=""><figcaption><p>从云磁盘后台的监控可以看到带宽达到上限</p></figcaption></figure>
+
+从Prometheus监控也可以看到，磁盘吞吐量达到了133MB/s，达到该“高IO”磁盘的上限（吞吐量 = min (150, 100 + 0.15 × 容量（GiB）)）。
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption><p>从Prometheus查看：磁盘写入峰值带宽到达133MB/s</p></figcaption></figure>
+
+优化：升级磁盘规格，从“高IO”直接升级到“超高IO”，满足性能需求。
+
+因磁盘空间是200GB，所以“高IO”硬盘的吞吐性能是130MB/s（吞吐量 = min (150, 100 + 0.15 × 容量（GiB）)）；升级到“超高IO”后，磁盘的吞吐性能提升到220MB/s（吞吐量 = min (350, 120 + 0.5 × 容量（GiB）)）
+
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>云硬盘的IO吞吐量性能数据</p></figcaption></figure>
 
