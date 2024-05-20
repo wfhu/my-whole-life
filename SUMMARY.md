@@ -55,6 +55,7 @@
     * [第一期--开始--有意义的生活](chapter6/talk-about-life/talk001-the-beginning-meaningful-life.md)
 * [第七：工作、技术及专业内容](chapter7/README.md)
   * [【列表】重要技术工作项目日志](chapter7/list-core-job-list.md)
+  * [AWS下CloudFront+S3组合出现的CORS问题详解](chapter7/aws-xia-cloudfront+s3-zu-he-chu-xian-de-cors-wen-ti-xiang-jie.md)
   * [【方案】使用redis hash和bitfield替换简单kv](chapter7/redis-hash-and-bitfield-replace-simple-kv.md)
   * [【优化】nginx启用reuseport](chapter7/nginx-enable-reuseport.md)
   * [【优化】博雅-大数据机器高故障率分析和优化](chapter7/by-bigdata-machine-optimization.md)
