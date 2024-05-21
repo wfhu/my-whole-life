@@ -26,6 +26,7 @@ CloudFront相关配置：
 
 果然，AWS的技术支持服务还是很棒的，经过ticket回复、电话详细沟通、开通CloudFront日志等操作之后，我们按照要求提供了非常详细的请求和返回的Header信息，在第二个工作日，对方找到了根本原因并给出了优化方案。
 
+{% code overflow="wrap" lineNumbers="true" fullWidth="true" %}
 ````
 • 为什么您复现时，有带上跨域(CORS)请求还是没有在回覆里看到对应的标头？
 
@@ -90,6 +91,7 @@ age: 2926
 
 [3] https://repost.aws/knowledge-center/no-access-control-allow-origin-error 
 ````
+{% endcode %}
 
 理解了上面的内容，也就很好地解释了为什么这个CORS只是偶尔出现，而不是必然会出现。根据建议修改后的CloudFront下“行为”配置如下：
 
