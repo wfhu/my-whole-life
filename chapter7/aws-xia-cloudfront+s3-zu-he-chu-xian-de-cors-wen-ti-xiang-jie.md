@@ -103,13 +103,17 @@ age: 2926
 
 简单概括：
 
-1、对于Simple Request，CloudFront配置的回覆标头策略(Response headers policy)一定会添加对应的Header，所以不会出现CORS错误。
+首先，确保CloudFront的边缘节点目前都没有缓存相关文件。
 
-2、对于非Simple Request，又分两种场景：
+场景一：边缘节点接受到的第一个请求**带了**“origin”请求头，所以S3会返回“Access-Control-Allow-Origin: \*”头，那么一切都没问题，因为CloudFront会将相关的“Access-Control-Allow-Origin: \*”头都缓存起来；后续所有的请求，即便是没有带上"origin"请求头，也都会由CloudFront从缓存中发送带有“Access-Control-Allow-Origin: \*”头的相关Response给客户端，客户端自然不会出现CORS报错。
 
+场景二：边缘节点接受到的第一个请求**没有带**“origin”请求头，则S3不会返回“Access-Control-Allow-Origin: \*”头，那么CloudFront边缘节点内就不会缓存有“Access-Control-Allow-Origin: \*”头，这时又有两种情况：
 
+&#x20;   2.1、对于Simple Request，CloudFront配置的回覆标头策略(Response headers policy)（此处是Managed-SimpleCORS策略）一定会添加对应的Header返回给客户端，所以不会出现CORS错误。
 
-理解了上面的内容，也就很好地解释了为什么这个CORS只是偶尔出现，而不是必然会出现。根据建议修改后的CloudFront下“行为”配置如下：
+&#x20;   2.2、对于非Simple Request，CloudFront配置的回覆标头策略不起作用，同时，由于CloudFront边缘节点缓存的信息中没有“Access-Control-Allow-Origin: \*”头，客户端接收到的Response里面自然不会有“Access-Control-Allow-Origin: \*”头，也就会报CORS错误了。
+
+理解了上面的内容，也就很好地解释了为什么这个CORS只是偶尔出现，而且只能在某一区域复现。根据建议修改后的CloudFront下“行为”配置如下：
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>CloudFront修改后的“行为”配置</p></figcaption></figure>
 
