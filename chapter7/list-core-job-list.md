@@ -267,7 +267,7 @@ CPU利用率：从峰值的40%下降到峰值的25%左右，下降37%
 
 看FAQ文档：[https://github.com/tair-opensource/RedisShake/wiki/redis%E2%80%90shake-2.x-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98](https://github.com/tair-opensource/RedisShake/wiki/redis%E2%80%90shake-2.x-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 优化：为了避免修改参数引起其他不必要的问题，我们尝试“在业务低峰期再进行同步”，果然就顺利完成了同步了。
 

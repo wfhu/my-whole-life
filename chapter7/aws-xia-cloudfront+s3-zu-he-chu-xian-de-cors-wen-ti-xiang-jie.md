@@ -10,9 +10,15 @@ description: 关键字：CORS，simple request
 
 CloudFront相关配置（有问题的配置）：
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>CloudFront上“行为”相关配置</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>CloudFront上“行为”相关配置</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>CloudFront上“行为”相关配置-详情</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>CloudFront上“行为”相关配置-详情</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>缓存策略</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>源请求策略</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>响应标头策略</p></figcaption></figure>
 
 源站（S3）CORS相关配置：
 
@@ -105,8 +111,8 @@ age: 2926
 
 理解了上面的内容，也就很好地解释了为什么这个CORS只是偶尔出现，而不是必然会出现。根据建议修改后的CloudFront下“行为”配置如下：
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>CloudFront修改后的“行为”配置</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>CloudFront修改后的“行为”配置</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>新增的缓存策略</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>新增的缓存策略</p></figcaption></figure>
 
 经过这样配置之后，INVALIDATE相关资源URL后，至今再未发生过类似的情况。
