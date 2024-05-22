@@ -6,9 +6,9 @@ description: 关键字：CORS，simple request
 
 时间：2023年11月至2024年5月
 
-现象：偶尔（几天或者几个星期才有一个）有用户反馈，页面会出现CORS报错，无法正常访问，把文件修改链接后在CloudFront上重新发布或者失效对应的文件后，报错现象消失，恢复正常。同一时期内，对应使用其他CDN厂商的区域（如中国大陆使用了腾讯云CDN+COS对象存储），未出现类似的情况。
+现象：偶尔（几天或者几个星期才有一个）有用户反馈，页面会出现CORS报错，无法正常访问，把文件修改链接后在CloudFront上重新发布（会更新URL路径）或者失效对应的旧文件URL后，报错现象消失，恢复正常。同一时期内，对应使用其他CDN厂商的区域（如中国大陆使用了腾讯云CDN+COS对象存储），未出现类似的情况。
 
-CloudFront相关配置：
+CloudFront相关配置（有问题的配置）：
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>CloudFront上“行为”相关配置</p></figcaption></figure>
 
@@ -22,9 +22,11 @@ CloudFront相关配置：
 
 <figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption><p>Chrome客户端出现的CORS错误</p></figcaption></figure>
 
-排查与优化：经过很长一段时间的查看文档、测试、咨询国内AWS销售代表介绍的技术人员等方式，始终没有解决问题。在一次与AWS代理商及技术人员沟通中得知，国内技术人员实际上是没有权限查看日志的，一定要开通技术支持，通过ticket，这样远在美国的技术团队可以查看到具体的日志。最终决定：开通AWS的Business级别的技术支持，提ticket进行咨询。
+排查与优化：经过很长一段时间的搜索、查看文档、测试、咨询国内AWS销售代表介绍的技术人员等方式，始终没有解决问题。
 
-果然，AWS的技术支持服务还是很棒的，经过ticket回复、电话详细沟通、开通CloudFront日志等操作之后，我们按照要求提供了非常详细的请求和返回的Header信息，在第二个工作日，对方找到了根本原因并给出了优化方案。
+在一次与AWS代理商及技术人员沟通中得知，国内AWS的技术人员实际上是没有权限查看后台日志的，一定要开通技术支持服务，通过ticket，这样远在美国的技术团队可以查看到具体的日志。最终决定：开通AWS的Business级别的技术支持，提ticket进行咨询。
+
+果然，AWS的技术支持服务还是很棒的，经过ticket回复、电话详细沟通、开通CloudFront日志等操作之后，我们按照要求提供了非常详细的请求和对应返回的Header信息，在第二个工作日，对方找到了根本原因并给出了对应的优化方案。
 
 {% code overflow="wrap" lineNumbers="true" fullWidth="true" %}
 ````
@@ -92,6 +94,14 @@ age: 2926
 [3] https://repost.aws/knowledge-center/no-access-control-allow-origin-error 
 ````
 {% endcode %}
+
+简单概括：
+
+1、对于Simple Request，CloudFront配置的回覆标头策略(Response headers policy)一定会添加对应的Header，所以不会出现CORS错误。
+
+2、对于非Simple Request，又分两种场景：
+
+
 
 理解了上面的内容，也就很好地解释了为什么这个CORS只是偶尔出现，而不是必然会出现。根据建议修改后的CloudFront下“行为”配置如下：
 
