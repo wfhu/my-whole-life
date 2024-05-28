@@ -120,3 +120,19 @@ age: 2926
 <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>新增的缓存策略</p></figcaption></figure>
 
 经过这样配置之后，INVALIDATE相关资源URL后，至今再未发生过类似的情况。
+
+参考资料一：[https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.html)
+
+参考资料二：[https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple\_requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple\_requests)
+
+#### 学习到的东西
+
+1、HTTP的东西还挺复杂的，以前都没仔细了解过，Simple request，Preflighted request，这些概念实际上是不知道的。所以：专业的事情还是需要有专业的人来做，看似简单的事情，内行能看到更多。
+
+2、使用海外AWS服务，一定要购买“企业支持服务”，否则生产环境出问题会很难受。AWS在国内的销售和技术人员，实际上都是偏产品、功能、特性等层面的，可以给建议，可以提供咨询，但是真正能解决具体问题的还是提ticket。
+
+这一点与国内云厂商的服务差别很大，国内云厂商，主打一个人际关系，通过找到具体的研发人员，可以直接帮忙定位和排查问题，只要是大客户，问问认识的销售啥的，帮忙找到研发人员帮忙，基本都不是事。而AWS在国内的技术人员甚至连后台的日志都无法查看到（从某AWS国内代理商的技术人员那里得到的信息，不一定完全准确），底层逻辑是按商业规则办事，交钱买服务，有专业的人在后面支撑。
+
+3、AWS的产品设计，似乎有故意复杂化的可能性，不能像国内CDN厂商一样It Just Works。CloudFront自带的Managed Policies，特别是配置项中推荐的配置，并不能默认覆盖我的用户场景。而我们使用国内另外一家云厂商的CDN服务，几乎不需要做特别的配置，相关的Header默认就有，完全没出过问题。
+
+一方面，把这些底层的技术能力暴露给用户，确实能够对那些技术能力很强的用户有帮助。另一方面，不排除故意把产品设计得过度复杂、难以入手，强迫用户购买“企业支持服务”。
