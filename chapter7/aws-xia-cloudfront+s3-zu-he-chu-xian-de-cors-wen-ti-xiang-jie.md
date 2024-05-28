@@ -136,3 +136,5 @@ age: 2926
 3、AWS的产品设计，似乎有故意复杂化的可能性，不能像国内CDN厂商一样It Just Works。CloudFront自带的Managed Policies，特别是配置项中推荐的配置（那一句：Recommended for S3很容易迷惑人），并不能默认覆盖我的用户场景。而我们使用国内另外一家云厂商的CDN服务，几乎不需要做特别的配置，相关的Header默认就有，完全没出过问题。
 
 一方面，把这些底层的技术能力暴露给用户，确实能够对那些技术能力很强的用户有帮助。另一方面，不排除故意把产品设计得过度复杂、难以入手，强迫用户购买“企业支持服务”。
+
+你看AWS提供的免费知识文档，参考文档：[https://repost.aws/knowledge-center/no-access-control-allow-origin-error](https://repost.aws/knowledge-center/no-access-control-allow-origin-error) ；整个文档没有特别的格式，没有清晰的段落，条件说明都不清不楚，简单弄个if-else都会清晰很多，你觉得是他们没这个能力么？
