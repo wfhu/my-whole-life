@@ -293,3 +293,10 @@ CPU利用率：从峰值的40%下降到峰值的25%左右，下降37%
 
 <figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>云硬盘的IO吞吐量性能数据</p></figcaption></figure>
 
+需要注意的点：
+
+1、部分云厂商磁盘的IO和吞吐上限，是读、写的总和；
+
+2、除了考虑磁盘本身的IO和吞吐限制外，还需要考虑“虚拟机”自身到存储吞吐带宽的上限：
+
+<figure><img src="../.gitbook/assets/4bde4f2093f44b48f6cfd1622ccc979.png" alt=""><figcaption></figcaption></figure>
