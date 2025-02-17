@@ -76,5 +76,6 @@
   * [孕育及成长日志](chapter8/baby-grow-log.md)
   * [人格与愿景](chapter8/personality-and-vision.md)
   * [梦境](chapter8/my-dreams.md)
-* [第九：社会新闻与时事评论](chapter9.md)
+* [第九：社会新闻与时事评论](chapter9/README.md)
+  * [A bad experience in the metro](chapter9/a-bad-experience-in-the-metro.md)
 * [附一：本书日志](book-log.md)
