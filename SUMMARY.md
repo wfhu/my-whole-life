@@ -78,4 +78,5 @@
   * [梦境](chapter8/my-dreams.md)
 * [第九：社会新闻与时事评论](chapter9/README.md)
   * [A bad experience in the metro](chapter9/a-bad-experience-in-the-metro.md)
+  * [有感于麦当劳早餐的定价策略](chapter9/you-gan-yu-mai-dang-lao-zao-can-de-ding-jia-ce-le.md)
 * [附一：本书日志](book-log.md)
